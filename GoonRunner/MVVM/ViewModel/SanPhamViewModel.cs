@@ -24,13 +24,13 @@ namespace GoonRunner.MVVM.ViewModel
             foreach (var item in DanhSachSanPham)
             {
                 SANPHAM sanpham = new SANPHAM();
-                sanpham.MaSP = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where((n) => n.MaSP == i).Select(n => n.MaSP).FirstOrDefault();
-                sanpham.TenSP = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where(n => n.MaSP == i).Select(n => n.TenSP).FirstOrDefault();
-                sanpham.LoaiSP = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where(n => n.MaSP == i).Select(n => n.LoaiSP).FirstOrDefault();
-                sanpham.ThoiGianBH = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where((n) => n.MaSP == i).Select(n => n.ThoiGianBH).FirstOrDefault();
-                sanpham.GiaSP = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where((n) => n.MaSP == i).Select(n => n.GiaSP).FirstOrDefault();
-                sanpham.NhaSX = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where((n) => n.MaSP == i).Select(n => n.NhaSX).FirstOrDefault();
-                sanpham.CoKhuyenMai = DataProvider.Ins.goonRunnerDB.SANPHAMs.Where((n) => n.MaSP == i).Select(n => n.CoKhuyenMai).FirstOrDefault();
+                sanpham.MaSP = item.MaSP;
+                sanpham.TenSP = item.TenSP;
+                sanpham.LoaiSP = item.LoaiSP;
+                sanpham.ThoiGianBH = item.ThoiGianBH;
+                sanpham.GiaSP = item.GiaSP;
+                sanpham.NhaSX = item.NhaSX;
+                sanpham.CoKhuyenMai = item.CoKhuyenMai;
                 SanPhamList.Add(sanpham);
                 i++;
             }

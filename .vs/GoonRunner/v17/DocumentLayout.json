@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\sidebarchitietphieunhaphangviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\sidebarchitietphieunhaphangviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\view\\sidebarchitiethoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\view\\sidebarchitiethoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\goonrunner\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\sidebarchitiethoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\sidebarchitiethoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\goonrunner\\mvvm\\view\\sidebarchitietphieunhaphangview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\view\\sidebarchitietphieunhaphangview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\view\\chitiethoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\view\\chitiethoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\goonrunner\\mvvm\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\chitiethoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\chitiethoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\goonrunner\\mvvm\\view\\chitietphieunhaphangview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\view\\chitietphieunhaphangview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\goonrunner\\mvvm\\view\\sidebarhoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\view\\sidebarhoadonview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,61 +39,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAYwHYAAAAgAAAAAAAAAA==",
+              "Title": "SidebarChiTietHoaDonViewModel.cs",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarChiTietHoaDonViewModel.cs",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\SidebarChiTietHoaDonViewModel.cs",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarChiTietHoaDonViewModel.cs",
+              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\SidebarChiTietHoaDonViewModel.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAkwEYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T20:38:48.04Z"
+              "WhenOpened": "2025-05-11T20:58:03.526Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SidebarChiTietPhieuNhapHangViewModel.cs",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarChiTietPhieuNhapHangViewModel.cs",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\SidebarChiTietPhieuNhapHangViewModel.cs",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarChiTietPhieuNhapHangViewModel.cs",
-              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\SidebarChiTietPhieuNhapHangViewModel.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAwDoAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T20:22:46.111Z",
+              "Title": "SidebarChiTietHoaDonView.xaml",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarChiTietHoaDonView.xaml",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\View\\SidebarChiTietHoaDonView.xaml",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarChiTietHoaDonView.xaml",
+              "RelativeToolTip": "GoonRunner\\MVVM\\View\\SidebarChiTietHoaDonView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-11T20:57:45.563Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SidebarChiTietPhieuNhapHangView.xaml",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarChiTietPhieuNhapHangView.xaml",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\View\\SidebarChiTietPhieuNhapHangView.xaml",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarChiTietPhieuNhapHangView.xaml",
-              "RelativeToolTip": "GoonRunner\\MVVM\\View\\SidebarChiTietPhieuNhapHangView.xaml",
+              "Title": "ChiTietHoaDonView.xaml",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\ChiTietHoaDonView.xaml",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\View\\ChiTietHoaDonView.xaml",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\ChiTietHoaDonView.xaml",
+              "RelativeToolTip": "GoonRunner\\MVVM\\View\\ChiTietHoaDonView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-10T20:22:08.795Z"
+              "WhenOpened": "2025-05-11T20:50:41.885Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\LoginViewModel.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
+              "Title": "ChiTietHoaDonViewModel.cs",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\ChiTietHoaDonViewModel.cs",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\ChiTietHoaDonViewModel.cs",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\ChiTietHoaDonViewModel.cs",
+              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\ChiTietHoaDonViewModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-10T20:41:54.245Z"
+              "WhenOpened": "2025-05-11T20:37:02.054Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ChiTietPhieuNhapHangView.xaml",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\ChiTietPhieuNhapHangView.xaml",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\View\\ChiTietPhieuNhapHangView.xaml",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\ChiTietPhieuNhapHangView.xaml",
-              "RelativeToolTip": "GoonRunner\\MVVM\\View\\ChiTietPhieuNhapHangView.xaml",
+              "Title": "SidebarHoaDonView.xaml",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarHoaDonView.xaml",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\View\\SidebarHoaDonView.xaml",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\View\\SidebarHoaDonView.xaml",
+              "RelativeToolTip": "GoonRunner\\MVVM\\View\\SidebarHoaDonView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-10T21:02:12.827Z"
+              "WhenOpened": "2025-05-11T16:59:25.732Z",
+              "EditorCaption": ""
             }
           ]
         }

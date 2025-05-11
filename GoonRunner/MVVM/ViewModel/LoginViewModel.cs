@@ -119,14 +119,14 @@ namespace GoonRunner.MVVM.ViewModel
                         break;
                     case "Nhân viên chăm sóc khách hàng":
                         mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.DonHangRadioButton.Visibility = Visibility.Collapsed;
+                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
                         break;
                     case "Nhân viên kiểm kho":
                         mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.DonHangRadioButton.Visibility = Visibility.Collapsed;
+                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
                         break;
@@ -134,13 +134,13 @@ namespace GoonRunner.MVVM.ViewModel
                         mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.SanPhamRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.DonHangRadioButton.Visibility = Visibility.Collapsed;
+                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
                         break;
                     case "Admin":
                         mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.SanPhamRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.DonHangRadioButton.Visibility = Visibility.Collapsed;
+                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
                         mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
                         break;
                 }

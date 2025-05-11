@@ -25,11 +25,11 @@ namespace GoonRunner.MVVM.ViewModel
             foreach (var item in DanhSachPhieuNhapHang)
             {
                 PHIEUNHAPHANG phieunhaphang = new PHIEUNHAPHANG();
-                phieunhaphang.MaPNH = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs.Where((n) => n.MaPNH == i).Select(n => n.MaPNH).FirstOrDefault();
-                phieunhaphang.MaNCC = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs.Where(n => n.MaPNH == i).Select(n => n.MaNCC).FirstOrDefault();
-                phieunhaphang.TenNCC = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs.Where(n => n.MaPNH == i).Select(n => n.TenNCC).FirstOrDefault();
-                phieunhaphang.NgayNhap = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs.Where((n) => n.MaPNH == i).Select(n => n.NgayNhap).FirstOrDefault();
-                phieunhaphang.MaNV = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs.Where((n) => n.MaPNH == i).Select(n => n.MaNV).FirstOrDefault();
+                phieunhaphang.MaPNH = item.MaPNH;
+                phieunhaphang.MaNCC = item.MaNCC;
+                phieunhaphang.TenNCC = item.TenNCC;
+                phieunhaphang.NgayNhap = item.NgayNhap;
+                phieunhaphang.MaNV = item.MaNV;
                 PhieuNhapHangList.Add(phieunhaphang);
                 i++;
             }

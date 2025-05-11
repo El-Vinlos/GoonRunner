@@ -12,7 +12,9 @@ namespace GoonRunner.MVVM.ViewModel
         private ObservableCollection<KHACHHANG> _danhsachkhachhang;
         public ObservableCollection<KHACHHANG> DanhSachKhachHang { get => _danhsachkhachhang; set { _danhsachkhachhang = value; OnPropertyChanged(); } }
         private DateTime _selecteddate;
-        public DateTime SelectedDate { get => _selecteddate; set { if (_selecteddate != value) { _selecteddate = value; NgaySinh = value; OnPropertyChanged(); } } }
+        public DateTime SelectedDate { get => _selecteddate; set { if (_selecteddate != value) { _selecteddate = value; FormattedDate = value.ToString("dd/MM/yyyy"); NgaySinh = value; OnPropertyChanged(); } } }
+        private string _formattedDate;
+        public string FormattedDate { get => _formattedDate; private set => _formattedDate = value; }
         private string _hokh;
         public string HoKH { get => _hokh; set { _hokh = value; OnPropertyChanged(); } }
         private string _tenkh;

@@ -180,13 +180,28 @@
                         </RadioButton.Resources>
                     </RadioButton>
 
-                    <RadioButton Name="DonHangRadioButton"
+                    <RadioButton Name="HoaDonRadioButton"
                                          Style="{StaticResource RadioButtonStyle}"
                                          gr:Extensions.Icon="ClipboardBulletListRtl20"
-                                Click="ChangeTitleDonhang">
+                                 Command="{Binding HoaDonViewCommand}"
+                                 Click="ChangeTitleHoadon">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <TextBlock FontFamily="pack://application:,,,/Assets/Fonts/#JetBrains Mono" FontWeight="Medium" FontSize="18" Margin="10,0,0,0">
-                                        Đơn Hàng
+                                        Hóa Đơn
+                            </TextBlock>
+                        </StackPanel>
+                        <RadioButton.Resources>
+                        </RadioButton.Resources>
+                    </RadioButton>
+                    
+                    <RadioButton Name="ChiTietHoaDonRadioButton"
+                                         Style="{StaticResource RadioButtonStyle}"
+                                         gr:Extensions.Icon="ClipboardBulletListRtl20"
+                                 Command="{Binding ChiTietHoaDonViewCommand}"
+                                 Click="ChangeTitleChitiethoadon">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock FontFamily="pack://application:,,,/Assets/Fonts/#JetBrains Mono" FontWeight="Medium" FontSize="18" Margin="10,0,0,0">
+                                        CT Hóa Đơn
                             </TextBlock>
                         </StackPanel>
                         <RadioButton.Resources>

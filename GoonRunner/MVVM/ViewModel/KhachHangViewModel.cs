@@ -26,13 +26,11 @@ namespace GoonRunner.MVVM.ViewModel
             foreach (var item in DanhSachKhachHang)
             {
                 KHACHHANG khachhang = new KHACHHANG();
-                khachhang.MaKH = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where((n) => n.MaKH == i).Select(n => n.MaKH).FirstOrDefault();
-                var HoKH = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where(n => n.MaKH == i).Select(n => n.HoKH).FirstOrDefault();
-                var TenKH = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where(n => n.MaKH == i).Select(n => n.TenKH).FirstOrDefault();
-                khachhang.TenKH = HoKH + " " + TenKH;
-                khachhang.SdtKH = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where((n) => n.MaKH == i).Select(n => n.SdtKH).FirstOrDefault();
-                khachhang.NgaySinh = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where((n) => n.MaKH == i).Select(n => n.NgaySinh).FirstOrDefault();
-                khachhang.DiaChi = DataProvider.Ins.goonRunnerDB.KHACHHANGs.Where((n) => n.MaKH == i).Select(n => n.DiaChi).FirstOrDefault();
+                khachhang.MaKH = item.MaKH;
+                khachhang.TenKH = item.HoKH + " " + item.TenKH;
+                khachhang.SdtKH = item.SdtKH;
+                khachhang.NgaySinh = item.NgaySinh;
+                khachhang.DiaChi = item.DiaChi;
                 KhachHangList.Add(khachhang);
                 i++;
             }
