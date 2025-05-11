@@ -113,6 +113,10 @@ namespace GoonRunner.MVVM.View
         {
             this.Title = "GoonRunner - Sản phẩm";
         }
+        private void ChangeTitlePhieunhaphang(object sender, RoutedEventArgs e)
+        {
+            this.Title = "GoonRunner - Phiếu nhập hàng";
+        }
 
         private void ChangeTitleKhachhang(object sender, RoutedEventArgs e)
         {
@@ -127,6 +131,11 @@ namespace GoonRunner.MVVM.View
         private void ChangeTitleBaohanh(object sender, RoutedEventArgs e)
         {
             this.Title = "GoonRunner - Bảo hành";
+        }
+
+        private void ChangeTitleChitietphieunhaphang(object sender, RoutedEventArgs e)
+        {
+            this.Title = "GoonRunner - Chi tiết phiếu nhập hàng";
         }
     }
 }

@@ -79,6 +79,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="CustomControl\Textbox.xaml" />
+    <Page Include="MVVM\View\ChiTietPhieuNhapHangView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\ForgotPasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -91,8 +95,28 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MVVM\View\NhanVienView.xaml" />
+    <Page Include="MVVM\View\PhieuNhapHangView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SanPhamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SidebarChiTietPhieuNhapHangView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\SidebarNhanVienView.xaml" />
     <Page Include="MVVM\View\SidebarKhachHangView.xaml" />
+    <Page Include="MVVM\View\SidebarPhieuNhapHangView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SidebarSanPhamView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\MainResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,14 +210,23 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\ViewModel\BaseViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ChiTietPhieuNhapHangViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ForgotPasswordViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\KhachHangViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NhanVienViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\PhieuNhapHangViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SanPhamViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SidebarChiTietPhieuNhapHangViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SidebarKhachHangViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SidebarNhanVienViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SidebarPhieuNhapHangViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SidebarSanPhamViewModel.cs" />
+    <Compile Include="MVVM\View\ChiTietPhieuNhapHangView.xaml.cs">
+      <DependentUpon>ChiTietPhieuNhapHangView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ForgotPasswordView.xaml.cs">
       <DependentUpon>ForgotPasswordView.xaml</DependentUpon>
     </Compile>
@@ -213,11 +246,26 @@
     <Compile Include="MVVM\View\NhanVienView.xaml.cs">
       <DependentUpon>NhanVienView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\PhieuNhapHangView.xaml.cs">
+      <DependentUpon>PhieuNhapHangView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SanPhamView.xaml.cs">
+      <DependentUpon>SanPhamView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SidebarChiTietPhieuNhapHangView.xaml.cs">
+      <DependentUpon>SidebarChiTietPhieuNhapHangView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\SidebarNhanVienView.xaml.cs">
       <DependentUpon>SidebarNhanVienView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\SidebarKhachHangView.xaml.cs">
       <DependentUpon>SidebarKhachHangView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SidebarPhieuNhapHangView.xaml.cs">
+      <DependentUpon>SidebarPhieuNhapHangView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SidebarSanPhamView.xaml.cs">
+      <DependentUpon>SidebarSanPhamView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

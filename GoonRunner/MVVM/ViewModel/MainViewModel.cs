@@ -10,12 +10,20 @@ namespace GoonRunner.MVVM.ViewModel
         public ICommand HomeViewCommand { get; set; }
         public ICommand NhanVienViewCommand { get; set; }
         public ICommand KhachHangViewCommand { get; set; }
+        public ICommand SanPhamViewCommand { get; set; }
+        public ICommand PhieuNhapHangViewCommand { get; set; }
+        public ICommand ChiTietPhieuNhapHangViewCommand { get; set; }
         public ICommand SignOutCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
         public KhachHangViewModel KhachHangVM { get; set; }
         public NhanVienViewModel NhanVienVM { get; set; }
+        public SanPhamViewModel SanPhamVM { get; set; }
+        public PhieuNhapHangViewModel PhieuNhapHangVM { get; set; }
+        public ChiTietPhieuNhapHangViewModel ChiTietPhieuNhapHangVM { get; set; }
         public SidebarNhanVienViewModel SidebarNhanVienVM { get; set; }
         public SidebarKhachHangViewModel SidebarKhachHangVM { get; set; }
+        public SidebarPhieuNhapHangViewModel SidebarPhieuNhapHangVM { get; set; }
+        public SidebarChiTietPhieuNhapHangViewModel SidebarChiTietPhieuNhapHangVM { get; set; }
         private object _currentView;
         private string _displayname;
         public string DisplayName { get => _displayname; set { _displayname = value; OnPropertyChanged(); } }
@@ -100,11 +108,16 @@ namespace GoonRunner.MVVM.ViewModel
             HomeVM = new HomeViewModel();
             KhachHangVM = new KhachHangViewModel();
             NhanVienVM = new NhanVienViewModel();
+            SanPhamVM = new SanPhamViewModel();
+            PhieuNhapHangVM = new PhieuNhapHangViewModel();
+            ChiTietPhieuNhapHangVM = new ChiTietPhieuNhapHangViewModel();
             SidebarNhanVienVM = new SidebarNhanVienViewModel();
             SidebarKhachHangVM = new SidebarKhachHangViewModel();
+            SidebarPhieuNhapHangVM = new SidebarPhieuNhapHangViewModel();
+            SidebarChiTietPhieuNhapHangVM = new SidebarChiTietPhieuNhapHangViewModel();
             CurrentView = HomeVM;
             // DisableSidebar();
-            
+
             //Change View
 
             HomeViewCommand = new RelayCommand<RadioButton>(o =>
@@ -112,18 +125,38 @@ namespace GoonRunner.MVVM.ViewModel
                 CurrentView = HomeVM;
                 DisableSidebar();
             });
-            
+
             NhanVienViewCommand = new RelayCommand<RadioButton>(o =>
             {
                 CurrentView = NhanVienVM;
                 CurrentSidebarView = SidebarNhanVienVM;
                 EnableSidebar();
             });
-            
+
             KhachHangViewCommand = new RelayCommand<RadioButton>(o =>
             {
                 CurrentView = KhachHangVM;
                 CurrentSidebarView = SidebarKhachHangVM;
+                EnableSidebar();
+            });
+
+            SanPhamViewCommand = new RelayCommand<RadioButton>(o =>
+            {
+                CurrentView = SanPhamVM;
+                DisableSidebar();
+            });
+
+            PhieuNhapHangViewCommand = new RelayCommand<RadioButton>(o =>
+            {
+                CurrentView = PhieuNhapHangVM;
+                CurrentSidebarView = SidebarPhieuNhapHangVM;
+                EnableSidebar();
+            });
+
+            ChiTietPhieuNhapHangViewCommand = new RelayCommand<RadioButton>(o =>
+            {
+                CurrentView = ChiTietPhieuNhapHangVM;
+                CurrentSidebarView = SidebarChiTietPhieuNhapHangVM;
                 EnableSidebar();
             });
 
