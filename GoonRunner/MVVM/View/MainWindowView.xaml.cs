@@ -142,5 +142,10 @@ namespace GoonRunner.MVVM.View
         {
             this.Title = "GoonRunner - Chi tiết hóa đơn";
         }
+
+        private void ChangeTitleTonkho(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Title = "GoonRunner - Tồn kho";
+        }
     }
 }

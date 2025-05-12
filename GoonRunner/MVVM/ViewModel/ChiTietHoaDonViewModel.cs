@@ -1,4 +1,5 @@
-﻿using GoonRunner.MVVM.Model;
+﻿using GoonRunner.CustomControl;
+using GoonRunner.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

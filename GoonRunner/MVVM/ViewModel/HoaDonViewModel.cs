@@ -28,7 +28,7 @@ namespace GoonRunner.MVVM.ViewModel
             foreach (var item in DanhSachHoaDon)
             {
                 HOADON hoadon = new HOADON();
-                hoadon.MaHD = item.MaNV;
+                hoadon.MaHD = item.MaHD;
                 hoadon.MaKH = item.MaKH;
                 hoadon.TenKH = item.HoKH + " " + item.TenKH;
                 hoadon.SdtKH = item.SdtKH;

@@ -28,6 +28,9 @@
     <DataTemplate DataType="{x:Type viewmodel:ChiTietHoaDonViewModel}">
         <view:ChiTietHoaDonView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:TonKhoViewModel}">
+        <view:TonKhoView/>
+    </DataTemplate>
     
     <!-- Sidebar View -->
     <DataTemplate DataType="{x:Type viewmodel:SidebarNhanVienViewModel}">
@@ -67,5 +70,6 @@
     <viewmodel:SidebarChiTietPhieuNhapHangViewModel x:Key="SidebarChiTietPhieuNhapHangVM"/>
     <viewmodel:SidebarHoaDonViewModel x:Key="SidebarHoaDonVM"/>
     <viewmodel:SidebarChiTietHoaDonViewModel x:Key="SidebarChiTietHoaDonVM"/>
+    <viewmodel:TonKhoViewModel x:Key="TonKhoVM"/>
     <viewmodel:ForgotPasswordViewModel x:Key="ForgotPassVM"/>
 </ResourceDictionary>

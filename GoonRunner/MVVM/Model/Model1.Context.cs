@@ -41,6 +41,5 @@ namespace GoonRunner.MVVM.Model
         public virtual DbSet<PHONGBAN> PHONGBANs { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
         public virtual DbSet<HINHNHANVIEN> HINHNHANVIENs { get; set; }
-        public virtual DbSet<TONKHO> TONKHOes { get; set; }
     }
 }

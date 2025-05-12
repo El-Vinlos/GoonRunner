@@ -15,6 +15,7 @@ namespace GoonRunner.MVVM.ViewModel
         public ICommand ChiTietPhieuNhapHangViewCommand { get; set; }
         public ICommand HoaDonViewCommand { get; set; }
         public ICommand ChiTietHoaDonViewCommand { get; set; }
+        public ICommand TonKhoViewCommand { get; set; }
         public ICommand SignOutCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
         public KhachHangViewModel KhachHangVM { get; set; }
@@ -24,6 +25,7 @@ namespace GoonRunner.MVVM.ViewModel
         public ChiTietPhieuNhapHangViewModel ChiTietPhieuNhapHangVM { get; set; }
         public HoaDonViewModel HoaDonVM { get; set; }
         public ChiTietHoaDonViewModel ChiTietHoaDonVM { get; set; }
+        public TonKhoViewModel TonKhoVM { get; set; }
         public SidebarNhanVienViewModel SidebarNhanVienVM { get; set; }
         public SidebarKhachHangViewModel SidebarKhachHangVM { get; set; }
         public SidebarPhieuNhapHangViewModel SidebarPhieuNhapHangVM { get; set; }
@@ -120,6 +122,7 @@ namespace GoonRunner.MVVM.ViewModel
             ChiTietPhieuNhapHangVM = new ChiTietPhieuNhapHangViewModel();
             HoaDonVM = new HoaDonViewModel();
             ChiTietHoaDonVM = new ChiTietHoaDonViewModel();
+            TonKhoVM = new TonKhoViewModel();
             SidebarNhanVienVM = new SidebarNhanVienViewModel();
             SidebarKhachHangVM = new SidebarKhachHangViewModel();
             SidebarPhieuNhapHangVM = new SidebarPhieuNhapHangViewModel();
@@ -183,6 +186,12 @@ namespace GoonRunner.MVVM.ViewModel
                 CurrentView = ChiTietHoaDonVM;
                 CurrentSidebarView = SidebarChiTietHoaDonVM;
                 EnableSidebar();
+            });
+
+            TonKhoViewCommand = new RelayCommand<RadioButton>(o =>
+            {
+                CurrentView = TonKhoVM;
+                DisableSidebar();
             });
 
             SignOutCommand = new RelayCommand<Window>((p) => true, (p) =>
