@@ -18,6 +18,7 @@ namespace GoonRunner.MVVM.ViewModel
         public ICommand TonKhoViewCommand { get; set; }
         public ICommand SignOutCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
+        public OwnerHomeViewModel OwnerHomeVM { get; set; }
         public KhachHangViewModel KhachHangVM { get; set; }
         public NhanVienViewModel NhanVienVM { get; set; }
         public SanPhamViewModel SanPhamVM { get; set; }
@@ -115,6 +116,7 @@ namespace GoonRunner.MVVM.ViewModel
             DisplayName = loginVM.DisplayName; // Lấy UserName
             Privilege = loginVM.Privilege; // Lấy Privilege
             HomeVM = new HomeViewModel();
+            OwnerHomeVM = new OwnerHomeViewModel();
             KhachHangVM = new KhachHangViewModel();
             NhanVienVM = new NhanVienViewModel();
             SanPhamVM = new SanPhamViewModel();
@@ -129,14 +131,24 @@ namespace GoonRunner.MVVM.ViewModel
             SidebarChiTietPhieuNhapHangVM = new SidebarChiTietPhieuNhapHangViewModel();
             SidebarHoaDonVM = new SidebarHoaDonViewModel();
             SidebarChiTietHoaDonVM = new SidebarChiTietHoaDonViewModel();
-            CurrentView = HomeVM;
+            if (Privilege == "Chủ cửa hàng")
+                CurrentView = OwnerHomeVM;
+            else 
+                CurrentView = HomeVM;
             // DisableSidebar();
 
             //Change View
 
             HomeViewCommand = new RelayCommand<RadioButton>(o =>
             {
-                CurrentView = HomeVM;
+                if (Privilege == "Chủ cửa hàng")
+                {
+                    CurrentView = OwnerHomeVM;
+                }
+                else
+                {
+                    CurrentView = HomeVM;
+                }
                 DisableSidebar();
             });
 

@@ -7,6 +7,9 @@
     <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
         <view:HomeView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodel:OwnerHomeViewModel}">
+        <view:OwnerHomeView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodel:KhachHangViewModel}">
         <view:KhachHangView/>
     </DataTemplate>
@@ -56,6 +59,7 @@
     </DataTemplate>
 
     <viewmodel:LoginViewModel x:Key="LoginVM"/>
+    <viewmodel:OwnerHomeViewModel x:Key="OwnerHomeVM"/>
     <viewmodel:KhachHangViewModel x:Key="KhachHangVM"/>
     <viewmodel:NhanVienViewModel x:Key="NhanVienVM"/>
     <viewmodel:SanPhamViewModel x:Key="SanPhamVM"/>

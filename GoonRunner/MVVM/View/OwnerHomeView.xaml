@@ -1,9 +1,14 @@
-﻿<UserControl x:Class="GoonRunner.MVVM.View.HomeView"
+﻿<UserControl x:Class="GoonRunner.MVVM.View.OwnerHomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:gr="clr-namespace:GoonRunner.CustomControl"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:local="clr-namespace:GoonRunner.MVVM.View"
+             xmlns:viewmodel="clr-namespace:GoonRunner.MVVM.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewmodel:OwnerHomeViewModel}"
+             DataContext="{StaticResource OwnerHomeVM}"
              mc:Ignorable="d"
              d:DesignHeight="590" d:DesignWidth="755">
     <Grid>
@@ -23,16 +28,22 @@
             </Grid.ColumnDefinitions>
             <GroupBox Grid.Row="0" 
                       Grid.Column="0" 
-                      Style="{StaticResource GroupBoxGoonRunner}" 
-                      
-                      Header="Lương" Foreground="#FF1FA022">
+                      Style="{StaticResource GroupBoxGoonRunner}"          
+                      Header="Doanh thu" Foreground="#FF1FA022">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Tháng này" Grid.Row="0" Foreground="#FF1FA022" Margin="10,30,0,0"/>
-                    <TextBlock Text="30,142,000đ" Grid.Row="1" Foreground="#FF1FA022" FontSize="30" Margin="10,0,0,0"/>
+                    <DatePicker Grid.Column="1"
+                                gr:Extensions.Header="Chọn ngày"
+                                VerticalContentAlignment="Center"
+                                Foreground="#3c3836" 
+                                BorderBrush="#3c3836"
+                                FontFamily="pack://application:,,,/Assets/Fonts/#JetBrains Mono"
+                                Margin="0,0,0,5" 
+                                SelectedDate="{Binding SelectedDate, Mode=TwoWay}"/>
+                    <TextBlock Text="{Binding HienThiDoanhThu, Mode=TwoWay}" Grid.Row="1" Foreground="#FF1FA022" FontSize="30" Margin="10,0,0,0"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GroupBoxGoonRunner}" Header="Tình Trạng" Foreground="#FFDA3737">
@@ -41,8 +52,13 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Số sản phẩm sắp hết hàng" Grid.Row="0" Foreground="#FFDA3737" Margin="0,30,0,0" HorizontalAlignment="Center"/>
-                    <TextBlock Text="0" Grid.Row="1" Foreground="#FFDA3737" FontSize="30" Margin="10,0,0,0" HorizontalAlignment="Center"/>
+                    <Button Grid.Row="0"
+                            Style="{StaticResource NavButtonChangeColor}"
+                            Command="{Binding RefreshCommand}">
+                        <ui:SymbolIcon Symbol="ArrowClockwise24" FontSize="20"/>
+                    </Button>
+                    <!--<TextBlock Text="Số sản phẩm sắp hết hàng" Grid.Row="0" Foreground="#FFDA3737" Margin="0,30,0,0" HorizontalAlignment="Center"/>
+                    <TextBlock Text="0" Grid.Row="1" Foreground="#FFDA3737" FontSize="30" Margin="10,0,0,0" HorizontalAlignment="Center"/>-->
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="0" Grid.Column="2" Style="{StaticResource GroupBoxGoonRunner}" Header="Xếp Hạng" Foreground="#FFE27404">

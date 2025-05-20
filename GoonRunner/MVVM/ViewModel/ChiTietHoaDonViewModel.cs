@@ -16,7 +16,7 @@ namespace GoonRunner.MVVM.ViewModel
         private ObservableCollection<CHITIETHOADON> _chitiethoadonlist;
         public ObservableCollection<CHITIETHOADON> ChiTietHoaDonList { get { return _chitiethoadonlist; } set { _chitiethoadonlist = value; OnPropertyChanged(); } }
         private int _mahd;
-        public int MaHD { get { return _mahd; } set { _mahd = value; OnPropertyChanged(); } }
+        public int MaHD { get { return _mahd; } set { _mahd = value; LoadChiTietHoaDonList(); OnPropertyChanged(); } }
         public ICommand RefreshCommand { get; set; }
         public ChiTietHoaDonViewModel()
         {

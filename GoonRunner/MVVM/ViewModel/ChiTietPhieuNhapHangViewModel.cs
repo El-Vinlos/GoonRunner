@@ -15,7 +15,7 @@ namespace GoonRunner.MVVM.ViewModel
         private ObservableCollection<CHITIETPHIEUNHAPHANG> _chitietphieunhaphanglist;
         public ObservableCollection<CHITIETPHIEUNHAPHANG> ChiTietPhieuNhapHangList { get { return _chitietphieunhaphanglist; } set { _chitietphieunhaphanglist = value; OnPropertyChanged(); } }
         private int _mapnh;
-        public int MaPNH { get { return _mapnh; } set { _mapnh = value; OnPropertyChanged(); } }
+        public int MaPNH { get { return _mapnh; } set { _mapnh = value; LoadChiTietPhieuNhapHangList(); OnPropertyChanged(); } }
         public ICommand RefreshCommand { get; set; }
         public ChiTietPhieuNhapHangViewModel()
         {

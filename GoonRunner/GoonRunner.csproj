@@ -103,6 +103,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MVVM\View\NhanVienView.xaml" />
+    <Page Include="MVVM\View\OwnerHomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\PhieuNhapHangView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +185,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Model\DataProvider.cs" />
+    <Compile Include="MVVM\Model\DoanhThuTheoNgay.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Model\GIAOCA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -237,6 +244,7 @@
     <Compile Include="MVVM\ViewModel\LoginViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\NhanVienViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OwnerHomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PhieuNhapHangViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SanPhamViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SidebarChiTietHoaDonViewModel.cs" />
@@ -274,6 +282,9 @@
     </Compile>
     <Compile Include="MVVM\View\NhanVienView.xaml.cs">
       <DependentUpon>NhanVienView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OwnerHomeView.xaml.cs">
+      <DependentUpon>OwnerHomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\PhieuNhapHangView.xaml.cs">
       <DependentUpon>PhieuNhapHangView.xaml</DependentUpon>
@@ -432,6 +443,8 @@
     <Content Include="Assets\Fonts\Segoe Fluent Icons.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Assets\Images\nen1.png" />
+    <Resource Include="Assets\Images\nen2.png" />
     <Content Include="MVVM\Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
