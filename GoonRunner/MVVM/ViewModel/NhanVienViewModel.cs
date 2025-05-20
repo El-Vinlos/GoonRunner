@@ -19,8 +19,8 @@ namespace GoonRunner.MVVM.ViewModel
         private void LoadNhanVienList()
         {
             NhanVienList = new ObservableCollection<NHANVIEN>();
-            var DanhSachNhanVien = DataProvider.Ins.goonRunnerDB.NHANVIENs;
-            int i = 1;
+            var DanhSachNhanVien = DataProvider.Ins.goonRunnerDB.NHANVIENs.Where(n => n.MaNV > 0);
+            
             foreach (var item in DanhSachNhanVien)
             {
                 NHANVIEN nhanvien = new NHANVIEN();
@@ -31,7 +31,6 @@ namespace GoonRunner.MVVM.ViewModel
                 nhanvien.SdtNV = item.SdtNV;
                 nhanvien.DiaChiNV = item.DiaChiNV;
                 NhanVienList.Add(nhanvien);
-                i++;
             }
         }
     }

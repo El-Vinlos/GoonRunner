@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:gr="clr-namespace:GoonRunner.CustomControl"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewmodel="clr-namespace:GoonRunner.MVVM.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewmodel:PhieuNhapHangViewModel}"
@@ -53,7 +54,6 @@
         </Grid>
 
         <ListView Grid.Row="1"
-                  Name="ListViewPNH"
                   Margin="5,0,10,0"
                   FontFamily="../../Assets/Fonts/#JetBrains Mono" 
                   FontWeight="Medium"
@@ -61,14 +61,16 @@
                   SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}"
                   VerticalAlignment="Top"
                   BorderBrush="{StaticResource Foreground}"
+                  BorderThickness="0"
+                  ItemContainerStyle="{StaticResource CenteredListViewItemStyle}"
                   Background="Transparent" >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Mã phiếu" DisplayMemberBinding="{Binding MaPNH}" />
-                    <GridViewColumn Header="Mã NCC" DisplayMemberBinding="{Binding MaNCC}"/>
-                    <GridViewColumn Header="Tên NCC" DisplayMemberBinding="{Binding TenNCC}"/>
-                    <GridViewColumn Header="Ngày nhập" DisplayMemberBinding="{Binding NgayNhap}"/>
-                    <GridViewColumn Header="Mã NV" DisplayMemberBinding="{Binding MaNV}"/>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                    <GridViewColumn Header="Mã phiếu" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaPNH" />
+                    <GridViewColumn Header="Mã NCC" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaNCC"/>
+                    <GridViewColumn Header="Tên NCC" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenNCC"/>
+                    <GridViewColumn Header="Ngày nhập" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="NgayNhap"/>
+                    <GridViewColumn Header="Mã NV" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaNV"/>
                 </GridView>
             </ListView.View>
         </ListView>

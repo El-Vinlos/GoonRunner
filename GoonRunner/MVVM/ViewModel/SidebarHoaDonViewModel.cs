@@ -43,6 +43,7 @@ namespace GoonRunner.MVVM.ViewModel
 
         public SidebarHoaDonViewModel()
         {
+            SelectedDate = DateTime.Now;
             DanhSachHoaDon = new ObservableCollection<HOADON>(DataProvider.Ins.goonRunnerDB.HOADONs);
             AddHoaDonCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {

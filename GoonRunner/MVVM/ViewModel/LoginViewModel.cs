@@ -8,6 +8,8 @@ using System.Windows.Controls;
 using GoonRunner.MVVM.View;
 using System.Windows.Automation;
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace GoonRunner.MVVM.ViewModel
 {
@@ -19,7 +21,7 @@ namespace GoonRunner.MVVM.ViewModel
 
         private string _password;
         public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
-        private string _placeholder;
+        private string _placeholder = "Nhập mật khẩu";
         public string Placeholder { get => _placeholder; set { _placeholder = value; OnPropertyChanged(); } }
 
         private string _errormessage;
@@ -37,7 +39,6 @@ namespace GoonRunner.MVVM.ViewModel
         public LoginViewModel()
         {
             IsLogin = false;
-            Placeholder = "Nhập mật khẩu";
             LoginCommand = new RelayCommand<Window>((p) => true, (p) => Login(p));
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => true, (p) =>
             {
@@ -105,47 +106,8 @@ namespace GoonRunner.MVVM.ViewModel
                 MainVM.Privilege = Privilege; // Gắn Privilege qua bên MainWindow
 
                 // Xử lý ẩn hiện danh mục dựa vào quyền của user
-                switch (Privilege)
-                {
-                    case "Nhân viên bán hàng":
-                        mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Nhân viên kế toán":
-                        mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.SanPhamRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Nhân viên chăm sóc khách hàng":
-                        mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Nhân viên kiểm kho":
-                        mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
-                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Nhân viên kỹ thuật":
-                        mainwindow.NhanVienRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.SanPhamRadioButton.Visibility = Visibility.Collapsed;
-                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.KhuyenMaiRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                    case "Admin":
-                        mainwindow.KhachHangRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.SanPhamRadioButton.Visibility = Visibility.Collapsed;
-                        //mainwindow.HoaDonRadioButton.Visibility = Visibility.Collapsed;
-                        mainwindow.BaoHanhRadioButton.Visibility = Visibility.Collapsed;
-                        break;
-                }
+                SetVisibilityByPrivilege(mainwindow);
+
                 mainwindow.Show();
                 p.Hide();
             }
@@ -154,31 +116,151 @@ namespace GoonRunner.MVVM.ViewModel
                 ErrorMassage = "Tên tài khoản hoặc mật khẩu không đúng.";
             }
         }
+        private void SetVisibilityByPrivilege(MainWindowView mainwindow)
+        {
+            var hiddenControlsByRole = new Dictionary<string, List<UIElement>>
+            {
+                ["Nhân viên bán hàng"] = new List<UIElement>
+                {
+                    mainwindow.NhanVienRadioButton,
+                    mainwindow.KhuyenMaiRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                },
+                ["Nhân viên kế toán"] = new List<UIElement>
+                {
+                    mainwindow.NhanVienRadioButton,
+                    mainwindow.KhachHangRadioButton,
+                    mainwindow.SanPhamRadioButton,
+                    mainwindow.KhuyenMaiRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                },
+                ["Nhân viên chăm sóc khách hàng"] = new List<UIElement>
+                {
+                    mainwindow.NhanVienRadioButton,
+                    mainwindow.HoaDonRadioButton,
+                    mainwindow.KhuyenMaiRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                },
+                ["Nhân viên kiểm kho"] = new List<UIElement>
+                {
+                    mainwindow.NhanVienRadioButton,
+                    mainwindow.KhachHangRadioButton,
+                    mainwindow.HoaDonRadioButton,
+                    mainwindow.KhuyenMaiRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                },
+                ["Nhân viên kỹ thuật"] = new List<UIElement>
+                {
+                    mainwindow.NhanVienRadioButton,
+                    mainwindow.KhachHangRadioButton,
+                    mainwindow.SanPhamRadioButton,
+                    mainwindow.HoaDonRadioButton,
+                    mainwindow.KhuyenMaiRadioButton
+                },
+                ["Admin"] = new List<UIElement>
+                {
+                    mainwindow.KhachHangRadioButton,
+                    mainwindow.SanPhamRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                }
+            };
+
+            if (hiddenControlsByRole.TryGetValue(Privilege, out var controlsToHide))
+            {
+                foreach (var control in controlsToHide)
+                {
+                    control.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
 
         private bool CheckAccount()
         {
             string EncodedPass = MD5Hash(Password);
+            if (!System.Data.Entity.Database.Exists("GoonRunnerEntities"))
+            {
+                ErrorMassage = "Cấu hình cơ sở dữ liệu không chính xác";
+                return false;
+            }
+
             using (var context = new GoonRunnerEntities())
             {
-                int accCount = context.ACCNHANVIENs.Count(record => record.UserName == UserName && record.Pass == EncodedPass); // Kiểm tra có tài khoản hay không
-                DisplayName = context.ACCNHANVIENs.Where(a => a.UserName == UserName && a.Pass == EncodedPass)
-                                                  .Select(a => a.DisplayName).FirstOrDefault(); // Lấy dữ liệu từ cột DisplayName bên CSDL qua
-                Privilege = context.ACCNHANVIENs.Where(record => record.UserName == UserName && record.Pass == EncodedPass)
-                                                .Select(record => record.Quyen).FirstOrDefault(); // Lấy dữ liệu từ cột Quyen bên CSDL qua
-                
-                if (UserName == "goonrunner" && Password == "owner")
+                if (!context.Database.Exists())
                 {
-                    accCount = 1;
-                    DisplayName = "GoonRunner";
-                    Privilege = "Chủ cửa hàng";
-                }    
-
-                if (accCount > 0)
-                    return true;
-                else
+                    ErrorMassage = "Không thể kết nối cơ sở dữ liệu";
                     return false;
+                }
+
+                // T xài stored procedure bên SQL Server cho hiểu xuất cao hơn
+                // procedure đây:
+                // CREATE PROCEDURE kiem_tra_login
+                //     @UserName NVARCHAR(50),
+                // @PasswordHash NVARCHAR(100)
+                // AS
+                //     BEGIN
+                // SET NOCOUNT ON;
+                //
+                // SELECT 
+                //     DisplayName,
+                //     Quyen
+                // FROM 
+                //     ACCNHANVIEN
+                // WHERE 
+                //     UserName COLLATE Latin1_General_CS_AS = @UserName
+                // AND Pass = @PasswordHash;
+                // END                
+
+                // nếu thấy bất tiện thì t cũng có optimize cái cũ:
+                // var userAccount = context.ACCNHANVIENs
+                //     .Where(record => record.UserName == UserName && record.Pass == EncodedPass)
+                //     .Select(record => new
+                //     {
+                //         record.DisplayName,
+                //         record.Quyen
+                //     })
+                //     .FirstOrDefault();
+
+                try
+                {
+                    var userAccount = context.Database.SqlQuery<UserAccountDTO>(
+                        "EXEC kiem_tra_login @UserName, @PasswordHash",
+                        new SqlParameter("@UserName", UserName),
+                        new SqlParameter("@PasswordHash", EncodedPass)
+                    ).FirstOrDefault();
+
+                    if (userAccount == null)
+                        return false;
+
+                    DisplayName = userAccount.DisplayName;
+                    Privilege = userAccount.Quyen;
+                    return true;
+                }
+                catch (SqlException exception)
+                {
+                    if (exception.Number == 2812)
+                    {
+                        ErrorMassage = "Stored procedure 'kiem_tra_login' không tồn tại trong cơ sở dữ liệu.";
+                    }
+                    else
+                    {
+                        ErrorMassage = $"Lỗi truy vấn cơ sở dữ liệu: {exception.Message}";
+                    }
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    ErrorMassage = $"Lỗi không xác định: {ex.Message}";
+                    return false;
+                }
             }
         }
+
+        public class UserAccountDTO
+        {
+            public string DisplayName { get; set; }
+            public string Quyen { get; set; }
+        }
+
         private static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();

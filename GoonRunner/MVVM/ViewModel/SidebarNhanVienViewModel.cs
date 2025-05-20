@@ -105,6 +105,7 @@ namespace GoonRunner.MVVM.ViewModel
         public ICommand AddNhanVienCommand { get; set; }
         public SidebarNhanVienViewModel()
         {
+            SelectedDate = DateTime.Now;
             DanhSachNhanVien = new ObservableCollection<NHANVIEN>(DataProvider.Ins.goonRunnerDB.NHANVIENs);
             AddNhanVienCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {

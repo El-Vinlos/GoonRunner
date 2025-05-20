@@ -19,10 +19,10 @@
         WindowStartupLocation="CenterScreen"
         Icon="/GoonRunner.ico">
     <Window.Resources>
-    <SolidColorBrush x:Key="Foreground" Color="#3c3836"/>
-    <SolidColorBrush x:Key="Background" Color="#fbf1c7"/>
+        <SolidColorBrush x:Key="Foreground" Color="#3c3836"/>
+        <SolidColorBrush x:Key="Background" Color="#fbf1c7"/>
     </Window.Resources>
-    
+
     <Grid>
         <Grid Margin="0,10,0,0"
             Background="{StaticResource Background}">
@@ -40,13 +40,13 @@
                         </Image.Source>
                     </Image>
                 </Viewbox>
-                
+
                 <TextBlock Text="Đăng Nhập Tài Khoản"
                            Foreground="{StaticResource Foreground}"
                            VerticalAlignment="Center" HorizontalAlignment="Center"
                            FontFamily="../../Assets/Fonts/#JetBrains Mono" FontWeight="Medium" FontSize="16"
                            Margin="0,0,0,20" />
-                
+
                 <Grid Width="250">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -55,15 +55,15 @@
                     </Grid.RowDefinitions>
                     <gr:Textbox SetHeader="Username" 
                                 SetPlaceholder="Nhập username"
-                                SetBinding="{Binding UserName}"
+                                SetBinding="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                               
                                 Margin="0,0,0,10"/>
-                
-                
-                <GroupBox Grid.Row="1" Style="{StaticResource GroupboxForTextbox}"
+
+
+                    <GroupBox Grid.Row="1" Style="{StaticResource GroupboxForTextbox}"
                           Header="Password"
                           Margin="0,0,0,10">
-                    <Grid>
-                        <PasswordBox 
+                        <Grid>
+                            <PasswordBox 
                             Margin="1"
                             BorderThickness="0"
                             Background="Transparent"
@@ -74,16 +74,27 @@
                             Foreground="{StaticResource Foreground}"
                             PasswordChar="*"
                             x:Name="Password">
-                                        
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="PasswordChanged">
+
+                                <PasswordBox.Template>
+                                    <ControlTemplate TargetType="PasswordBox">
+                                        <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ScrollViewer x:Name="PART_ContentHost"
+                                                      Margin="0"
+                                                      VerticalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </PasswordBox.Template>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
                                         <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
                                                            CommandParameter="{Binding ElementName=Password}"/>
                                     </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </PasswordBox>
-                        
-                        <TextBlock IsHitTestVisible="False"
+                                </i:Interaction.Triggers>
+                            </PasswordBox>
+
+                            <TextBlock IsHitTestVisible="False"
                                    Text="{Binding Placeholder}"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Left"
@@ -93,18 +104,18 @@
                                    FontSize="12"
                                    x:Name="Placeholder"
                                    Foreground="#A89984"/>
-                        
-                    </Grid>
-                </GroupBox>
-                
-                <TextBlock Grid.Row="2" Name="ForgotPasswordTxt"
+
+                        </Grid>
+                    </GroupBox>
+
+                    <TextBlock Grid.Row="2" Name="ForgotPasswordTxt"
                            Text="Quên mật khẩu?"
                            Margin="0,0,10,10"
                            Style="{StaticResource ForgotPasswordStyle}">
-                    <TextBlock.InputBindings>
-                        <MouseBinding Command="{Binding ForgotPasswordCommand}" CommandParameter="{Binding ElementName=loginWindow}" MouseAction="LeftClick"/>
-                    </TextBlock.InputBindings>
-                </TextBlock>
+                        <TextBlock.InputBindings>
+                            <MouseBinding Command="{Binding ForgotPasswordCommand}" CommandParameter="{Binding ElementName=loginWindow}" MouseAction="LeftClick"/>
+                        </TextBlock.InputBindings>
+                    </TextBlock>
                 </Grid>
 
                 <Button Name="ButtonLogIn"
@@ -152,9 +163,9 @@
                        Cursor="Hand"
                        Click="MinimizedOnClick"
                        Style="{StaticResource WindowControlButton}">
-                     
+                    
                 </Button>
-               <Button Grid.Row="0" Grid.Column="2" Width="auto" Height="auto"
+                <Button Grid.Row="0" Grid.Column="2" Width="auto" Height="auto"
                        Style="{StaticResource WindowControlButton}"/>
 
                 <Button Grid.Row="0" Grid.Column="2" Width="auto" Height="auto"
@@ -163,13 +174,13 @@
                        Cursor="Hand"
                        Click="ClosedOnClick"
                        Style="{StaticResource CloseButton}">
-                    
+                    
                 </Button>
             </Grid>
 
             <!-- Horizontal Line -->
             <Rectangle Grid.Row="0" Height="2" Width="14" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="{StaticResource Foreground}"/>
-            <Rectangle Grid.Row="0" Height="2" Width="304" VerticalAlignment="Top" HorizontalAlignment="Right" Fill="{StaticResource Foreground}"/>
+            <Rectangle Grid.Row="0" Height="2" Width="315" VerticalAlignment="Top" HorizontalAlignment="Right" Fill="{StaticResource Foreground}"/>
             <Rectangle Grid.Row="0" Height="2" VerticalAlignment="Bottom" Fill="{StaticResource Foreground}"/>
             <!-- Vertical Line -->
             <Rectangle Grid.Row="0" Width="2" HorizontalAlignment="Left" Fill="{StaticResource Foreground}"/>
@@ -177,7 +188,7 @@
 
 
         </Grid>
-        <TextBlock Text="Log in"
+        <TextBlock Text="Login"
                    FontSize="16" FontFamily="JetBrains Mono" FontWeight="Bold"
                    Foreground="{StaticResource Foreground}"
                    Width="auto" Height="auto"

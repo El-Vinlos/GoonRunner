@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:gr="clr-namespace:GoonRunner.CustomControl"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewmodel="clr-namespace:GoonRunner.MVVM.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewmodel:TonKhoViewModel}"
@@ -60,12 +61,14 @@
                   SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}"
                   VerticalAlignment="Top"
                   BorderBrush="{StaticResource Foreground}"
+                  BorderThickness="0"
+                  ItemContainerStyle="{StaticResource CenteredListViewItemStyle}"
                   Background="Transparent" >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Mã SP" DisplayMemberBinding="{Binding STT}" />
-                    <GridViewColumn Header="Tên SP" DisplayMemberBinding="{Binding sanpham.TenSP}"/>
-                    <GridViewColumn Header="Số lượng tồn" DisplayMemberBinding="{Binding SoLuong}"/>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                    <GridViewColumn Header="Mã SP" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="STT" />
+                    <GridViewColumn Header="Tên SP" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="sanpham.TenSP"/>
+                    <GridViewColumn Header="Số lượng tồn" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="SoLuong"/>
                 </GridView>
             </ListView.View>
         </ListView>

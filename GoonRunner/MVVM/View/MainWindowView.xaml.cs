@@ -73,11 +73,9 @@ namespace GoonRunner.MVVM.View
         {
             if (MainGrid.ColumnDefinitions[5].Width.Value < 242)
             {
-               Split2.Visibility = Visibility.Collapsed;
+                Split2.Visibility = Visibility.Collapsed;
+                SidebarButton.IsChecked = false;
             }
-
-            // Displayname.Text = MainGrid.ColumnDefinitions[5].Width.Value.ToString();
-
         }
 
         private void SetSidebarWidth(object sender, DragCompletedEventArgs e)

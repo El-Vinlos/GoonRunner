@@ -52,13 +52,8 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="0"
-                            Style="{StaticResource NavButtonChangeColor}"
-                            Command="{Binding RefreshCommand}">
-                        <ui:SymbolIcon Symbol="ArrowClockwise24" FontSize="20"/>
-                    </Button>
-                    <!--<TextBlock Text="Số sản phẩm sắp hết hàng" Grid.Row="0" Foreground="#FFDA3737" Margin="0,30,0,0" HorizontalAlignment="Center"/>
-                    <TextBlock Text="0" Grid.Row="1" Foreground="#FFDA3737" FontSize="30" Margin="10,0,0,0" HorizontalAlignment="Center"/>-->
+                    <TextBlock Text="Số sản phẩm sắp hết hàng" Grid.Row="0" Foreground="#FFDA3737" Margin="0,30,0,0" HorizontalAlignment="Center"/>
+                    <TextBlock Text="0" Grid.Row="1" Foreground="#FFDA3737" FontSize="30" Margin="10,0,0,0" HorizontalAlignment="Center"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="0" Grid.Column="2" Style="{StaticResource GroupBoxGoonRunner}" Header="Xếp Hạng" Foreground="#FFE27404">

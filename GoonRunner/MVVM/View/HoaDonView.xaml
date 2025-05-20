@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:gr="clr-namespace:GoonRunner.CustomControl"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewmodel="clr-namespace:GoonRunner.MVVM.ViewModel"
              d:DataContext="{d:DesignInstance Type=viewmodel:HoaDonViewModel}"
@@ -53,25 +54,26 @@
         </Grid>
 
         <ListView Grid.Row="1"
-                  Name="ListViewPNH"
                   Margin="5,0,10,0"
                   FontFamily="../../Assets/Fonts/#JetBrains Mono" 
                   FontWeight="Medium"
                   ItemsSource="{Binding HoaDonList}"
                   SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}"
                   VerticalAlignment="Top"
-                  BorderBrush="{StaticResource Foreground}"
+                  Foreground="{StaticResource Foreground}"
+                  BorderThickness="0"
+                  ItemContainerStyle="{StaticResource CenteredListViewItemStyle}"
                   Background="Transparent" >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Mã HD" DisplayMemberBinding="{Binding MaHD}" />
-                    <GridViewColumn Header="Mã KH" DisplayMemberBinding="{Binding MaKH}"/>
-                    <GridViewColumn Header="Họ tên KH" DisplayMemberBinding="{Binding TenKH}"/>
-                    <GridViewColumn Header="SDT KH" DisplayMemberBinding="{Binding SdtKH}"/>
-                    <GridViewColumn Header="Địa chỉ KH" DisplayMemberBinding="{Binding DiaChi}"/>
-                    <GridViewColumn Header="Mã NV" DisplayMemberBinding="{Binding MaNV}"/>
-                    <GridViewColumn Header="Họ tên NV" DisplayMemberBinding="{Binding TenNV}"/>
-                    <GridViewColumn Header="Ngày mua hàng" DisplayMemberBinding="{Binding NgayMuaHang}"/>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                    <GridViewColumn Header="Mã HD" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaHD" />
+                    <GridViewColumn Header="Mã KH" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaKH"/>
+                    <GridViewColumn Header="Họ tên KH" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenKH"/>
+                    <GridViewColumn Header="SDT KH" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="SdtKH"/>
+                    <GridViewColumn Header="Địa chỉ KH" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="DiaChi"/>
+                    <GridViewColumn Header="Mã NV" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaNV"/>
+                    <GridViewColumn Header="Họ tên NV" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenNV"/>
+                    <GridViewColumn Header="Ngày mua hàng" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="NgayMuaHang"/>
                 </GridView>
             </ListView.View>
         </ListView>

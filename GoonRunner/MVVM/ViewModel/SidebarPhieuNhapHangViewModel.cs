@@ -30,6 +30,7 @@ namespace GoonRunner.MVVM.ViewModel
 
         public SidebarPhieuNhapHangViewModel()
         {
+            SelectedDate = DateTime.Now;
             DanhSachPhieuNhapHang = new ObservableCollection<PHIEUNHAPHANG>(DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs);
             AddPhieuNhapHangCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {

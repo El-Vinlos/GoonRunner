@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\resources\\mainresource.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\resources\\mainresource.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\nhanvienviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\nhanvienviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\ownerhomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\ownerhomeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|d:\\download\\bai_tap_nghe\\goonrunner\\goonrunner\\goonrunner\\mvvm\\viewmodel\\sidebarhoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0416715-99C3-48FE-8D1F-92A2E58104ED}|GoonRunner\\GoonRunner.csproj|solutionrelative:goonrunner\\mvvm\\viewmodel\\sidebarhoadonviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,40 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainResource.xaml",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\Resources\\MainResource.xaml",
-              "RelativeDocumentMoniker": "GoonRunner\\Resources\\MainResource.xaml",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\Resources\\MainResource.xaml",
-              "RelativeToolTip": "GoonRunner\\Resources\\MainResource.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-20T15:46:18.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\MainViewModel.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAQwIgAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:52:04.373Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OwnerHomeViewModel.cs",
-              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\OwnerHomeViewModel.cs",
-              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\OwnerHomeViewModel.cs",
-              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\OwnerHomeViewModel.cs",
-              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\OwnerHomeViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "SidebarHoaDonViewModel.cs",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarHoaDonViewModel.cs",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\SidebarHoaDonViewModel.cs",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\SidebarHoaDonViewModel.cs",
+              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\SidebarHoaDonViewModel.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAiwC0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-20T09:28:31.27Z",
+              "WhenOpened": "2025-05-20T18:47:17.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NhanVienViewModel.cs",
+              "DocumentMoniker": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\NhanVienViewModel.cs",
+              "RelativeDocumentMoniker": "GoonRunner\\MVVM\\ViewModel\\NhanVienViewModel.cs",
+              "ToolTip": "D:\\Download\\Bai_tap_nghe\\GoonRunner\\GoonRunner\\GoonRunner\\MVVM\\ViewModel\\NhanVienViewModel.cs",
+              "RelativeToolTip": "GoonRunner\\MVVM\\ViewModel\\NhanVienViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-20T18:38:04.54Z",
               "EditorCaption": ""
             }
           ]

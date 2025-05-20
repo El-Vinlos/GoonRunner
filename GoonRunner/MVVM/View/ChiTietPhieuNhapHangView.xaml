@@ -54,15 +54,13 @@
             </StackPanel>
         </Grid>
 
-        <gr:Textbox Grid.Row="1" 
-                    x:Name="TextboxMaPNH"
+        <gr:Textbox Grid.Row="1"
                     Margin="5,0,4,10"
                     SetHeader="Mã phiếu nhập"
                     SetPlaceholder="Nhập Mã PNH"
                     SetBinding="{Binding MaPNH, Mode=TwoWay}"/>
 
         <ListView Grid.Row="2"
-                  Name="ListViewPNH"
                   Margin="5,0,10,0"
                   FontFamily="../../Assets/Fonts/#JetBrains Mono" 
                   FontWeight="Medium"
@@ -70,13 +68,15 @@
                   SelectedItem="{Binding SelectedItem,Mode=OneWayToSource}"
                   VerticalAlignment="Top"
                   BorderBrush="{StaticResource Foreground}"
+                  BorderThickness="0"
+                  ItemContainerStyle="{StaticResource CenteredListViewItemStyle}"
                   Background="Transparent" >
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Mã SP" DisplayMemberBinding="{Binding MaSP}" />
-                    <GridViewColumn Header="Tên SP" DisplayMemberBinding="{Binding TenSP}"/>
-                    <GridViewColumn Header="Số lượng nhập" DisplayMemberBinding="{Binding SoLuongNhap}"/>
-                    <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding DonGia}"/>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                    <GridViewColumn Header="Mã SP" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaSP" />
+                    <GridViewColumn Header="Tên SP" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenSP"/>
+                    <GridViewColumn Header="Số lượng nhập" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="SoLuongNhap"/>
+                    <GridViewColumn Header="Đơn giá" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="DonGia"/>
                 </GridView>
             </ListView.View>
         </ListView>
