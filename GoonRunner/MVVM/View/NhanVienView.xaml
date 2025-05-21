@@ -11,21 +11,23 @@
              mc:Ignorable="d"
              d:DesignWidth="590"
              d:DesignHeight="700" >
+    
     <UserControl.Resources>
         <SolidColorBrush x:Key="Foreground" Color="#3c3836"/>
         <SolidColorBrush x:Key="Foreground2" Color="#A89984"/>
         <SolidColorBrush x:Key="Background" Color="#fbf1c7"/>
         <SolidColorBrush x:Key="Orange" Color="#D65D0E"/>
         <SolidColorBrush x:Key="Green" Color="#427B55"/>
-
+        
     </UserControl.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Margin="0,0,0,10">
+        <Grid Grid.Row="0" Margin="0,0,0,5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -64,16 +66,16 @@
                   BorderThickness="0"
                   ItemContainerStyle="{StaticResource CenteredListViewItemStyle}"
                   Background="Transparent" >
-            <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
-                    <GridViewColumn Header="Mã NV" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaNV"/>
-                    <GridViewColumn Header="Thông Tin" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenNV"/>
-                    <GridViewColumn Header="Phòng Ban" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaPB"/>
-                    <GridViewColumn Header="Giới Tính" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="GioiTinh"/>
-                    <GridViewColumn Header="Số Điện Thoại" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="SdtNV"/>
-                    <GridViewColumn Header="Địa Chỉ" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="DiaChiNV"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+             <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
+                            <GridViewColumn Header="Mã NV" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaNV"/>
+                            <GridViewColumn Header="Thông Tin" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="TenNV"/>
+                            <GridViewColumn Header="Phòng Ban" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="MaPB"/>
+                            <GridViewColumn Header="Giới Tính" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="GioiTinh"/>
+                            <GridViewColumn Header="Số Điện Thoại" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="SdtNV"/>
+                            <GridViewColumn Header="Địa Chỉ" CellTemplate="{StaticResource ColumnTemplate}" gr:Extensions.Binding="DiaChiNV"/>
+                        </GridView>
+                    </ListView.View>
+            </ListView>
     </Grid>
 </UserControl>

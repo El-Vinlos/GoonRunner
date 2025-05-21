@@ -1,10 +1,11 @@
-﻿using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using GoonRunner.MVVM.Model;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Input;
 using System.Windows;
-using System.Windows.Controls;
+using GoonRunner.MVVM.Model;
 using GoonRunner.MVVM.View;
 using System.Windows.Automation;
 using System;
@@ -16,6 +17,8 @@ namespace GoonRunner.MVVM.ViewModel
     class LoginViewModel : BaseViewModel
     {     
         public bool IsLogin { get; set; }
+        private bool _isloading;
+        public bool IsLoading {get => _isloading; set { _isloading = value; OnPropertyChanged();}}
         private string _userName;
         public string UserName { get => _userName; set { _userName = value; OnPropertyChanged(); } }
 
@@ -39,8 +42,8 @@ namespace GoonRunner.MVVM.ViewModel
         public LoginViewModel()
         {
             IsLogin = false;
-            LoginCommand = new RelayCommand<Window>((p) => true, (p) => Login(p));
-            PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => true, (p) =>
+            LoginCommand = new RelayCommand<Window>((p) => true, async (p) => await LoginAsync(p));
+            PasswordChangedCommand = new RelayCommand<System.Windows.Controls.PasswordBox>((p) => true, (p) =>
             {
                 if (string.IsNullOrEmpty(p.Password))
                 {
@@ -57,6 +60,66 @@ namespace GoonRunner.MVVM.ViewModel
                 forgotPasswordView.Show();
                 p.Hide();
             });
+        }
+
+        private async Task LoginAsync(Window p)
+        {
+            if (p == null)
+                return;
+            
+            ErrorMassage = "";
+            
+            if (string.IsNullOrEmpty(UserName))
+            {
+                ErrorMassage = "Hãy nhập tên người dùng";
+                return;
+            }
+
+            if (UserName.Length < 3)
+            {
+                ErrorMassage = "Tên người dùng phải dài ít nhất là 3 ký tự";
+                return;
+            }
+            
+            if (string.IsNullOrEmpty(Password))
+            {
+                ErrorMassage = "Hãy nhập mật khẩu";
+                return;
+            }
+            
+            if (Password.Length < 3)
+            {
+                ErrorMassage = "Mật khẩu phải dài ít nhất là 3 ký tự";
+                return;
+            }
+
+            IsLoading = true;
+            var storyboard = p.Resources["SpinnerStoryboard"] as System.Windows.Media.Animation.Storyboard;
+            storyboard?.Begin();
+
+            var accountValid = await Task.Run(CheckAccount);
+            IsLoading = false;
+            storyboard?.Stop();
+            if (!accountValid)
+            {
+                ErrorMassage = "Tên tài khoản hoặc mật khẩu không đúng.";
+                return;
+            }
+            
+            IsLogin = true;
+            Placeholder = "Nhập mật khẩu";
+            MainWindowView mainwindow = new MainWindowView();
+            // Đổi qua xài như vậy để tránh tình trạng null làm sập app như hồi sáng
+            if (mainwindow.DataContext is MainViewModel MainVM)
+            {
+                MainVM.DisplayName = DisplayName;
+                MainVM.Privilege = Privilege;
+            }
+
+            SetVisibilityByPrivilege(mainwindow);
+                
+            mainwindow.Show();
+            p.Hide();
         }
 
         private void LoginBYPASS(Window p)
@@ -96,26 +159,26 @@ namespace GoonRunner.MVVM.ViewModel
             }
 
             // Kiểm tra tài khoản
-            if (CheckAccount())
-            {
-                IsLogin = true;
-                Placeholder = "Nhập mật khẩu";
-                MainWindowView mainwindow = new MainWindowView();
-                var MainVM = mainwindow.DataContext as MainViewModel;
-                MainVM.DisplayName = DisplayName; // Gắn DisplayName qua bên MainWindow
-                MainVM.Privilege = Privilege; // Gắn Privilege qua bên MainWindow
-
-                // Xử lý ẩn hiện danh mục dựa vào quyền của user
-                SetVisibilityByPrivilege(mainwindow);
-
-                mainwindow.Show();
-                p.Hide();
-            }
-            else
+            if (!CheckAccount())
             {
                 ErrorMassage = "Tên tài khoản hoặc mật khẩu không đúng.";
+                return;
             }
+            
+            IsLogin = true;
+            Placeholder = "Nhập mật khẩu";
+            MainWindowView mainwindow = new MainWindowView();
+            var MainVM = mainwindow.DataContext as MainViewModel;
+            MainVM.DisplayName = DisplayName; // Gắn DisplayName qua bên MainWindow
+            MainVM.Privilege = Privilege; // Gắn Privilege qua bên MainWindow
+
+            // Xử lý ẩn hiện danh mục dựa vào quyền của user
+            SetVisibilityByPrivilege(mainwindow);
+                
+            mainwindow.Show();
+            p.Hide();
         }
+        
         private void SetVisibilityByPrivilege(MainWindowView mainwindow)
         {
             var hiddenControlsByRole = new Dictionary<string, List<UIElement>>
@@ -161,10 +224,11 @@ namespace GoonRunner.MVVM.ViewModel
                 {
                     mainwindow.KhachHangRadioButton,
                     mainwindow.SanPhamRadioButton,
+                    mainwindow.HoaDonRadioButton,
                     mainwindow.BaoHanhRadioButton
                 }
             };
-
+        
             if (hiddenControlsByRole.TryGetValue(Privilege, out var controlsToHide))
             {
                 foreach (var control in controlsToHide)
@@ -173,6 +237,7 @@ namespace GoonRunner.MVVM.ViewModel
                 }
             }
         }
+
 
         private bool CheckAccount()
         {
@@ -191,6 +256,7 @@ namespace GoonRunner.MVVM.ViewModel
                     return false;
                 }
 
+                
                 // T xài stored procedure bên SQL Server cho hiểu xuất cao hơn
                 // procedure đây:
                 // CREATE PROCEDURE kiem_tra_login
@@ -209,7 +275,7 @@ namespace GoonRunner.MVVM.ViewModel
                 //     UserName COLLATE Latin1_General_CS_AS = @UserName
                 // AND Pass = @PasswordHash;
                 // END                
-
+                    
                 // nếu thấy bất tiện thì t cũng có optimize cái cũ:
                 // var userAccount = context.ACCNHANVIENs
                 //     .Where(record => record.UserName == UserName && record.Pass == EncodedPass)
@@ -227,7 +293,7 @@ namespace GoonRunner.MVVM.ViewModel
                         new SqlParameter("@UserName", UserName),
                         new SqlParameter("@PasswordHash", EncodedPass)
                     ).FirstOrDefault();
-
+                    
                     if (userAccount == null)
                         return false;
 
@@ -247,24 +313,25 @@ namespace GoonRunner.MVVM.ViewModel
                     }
                     return false;
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
                     ErrorMassage = $"Lỗi không xác định: {ex.Message}";
                     return false;
                 }
+
             }
         }
-
+        
         public class UserAccountDTO
         {
             public string DisplayName { get; set; }
             public string Quyen { get; set; }
         }
-
+        
         private static string MD5Hash(string input)
         {
             StringBuilder hash = new StringBuilder();
-            MD5CryptoServiceProvider md5Provider = new MD5CryptoServiceProvider();
+            System.Security.Cryptography.MD5CryptoServiceProvider md5Provider = new System.Security.Cryptography.MD5CryptoServiceProvider();
             byte[] bytes = md5Provider.ComputeHash(new UTF8Encoding().GetBytes(input));
 
             foreach (var t in bytes)

@@ -73,8 +73,8 @@ namespace GoonRunner.MVVM.View
         {
             if (MainGrid.ColumnDefinitions[5].Width.Value < 242)
             {
-                Split2.Visibility = Visibility.Collapsed;
-                SidebarButton.IsChecked = false;
+               Split2.Visibility = Visibility.Collapsed;
+               SidebarButton.IsChecked = false;
             }
         }
 

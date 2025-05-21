@@ -154,6 +154,7 @@
     </Page>
     <Page Include="Theme\ForgotPasswordTheme.xaml" />
     <Page Include="Theme\GridSplitterTheme.xaml" />
+    <Page Include="Theme\ListViewTheme.xaml" />
     <Page Include="Theme\GroupBox.xaml" />
     <Page Include="Theme\ListViewTheme.xaml">
       <SubType>Designer</SubType>
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomControl\Extensions.cs" />
+    <Compile Include="CustomControl\InverseBooleanToVisibilityConverter.cs" />
     <Compile Include="CustomControl\Textbox.xaml.cs">
       <DependentUpon>Textbox.xaml</DependentUpon>
     </Compile>
