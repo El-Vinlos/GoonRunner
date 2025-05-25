@@ -31,9 +31,10 @@ namespace GoonRunner.MVVM.ViewModel
         private int _tongtien;
         public int TongTien { get => _tongtien; set { _tongtien = value; OnPropertyChanged(); } }
         public ICommand AddChiTietHoaDonCommand { get; set; }
-
-        public SidebarChiTietHoaDonViewModel()
+        public SidebarChiTietHoaDonViewModel() { }
+        public SidebarChiTietHoaDonViewModel(int maHD)
         {
+            MaHD = maHD;
             DanhSachChiTietHoaDon = new ObservableCollection<CHITIETHOADON>(DataProvider.Ins.goonRunnerDB.CHITIETHOADONs);
             AddChiTietHoaDonCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {
@@ -81,5 +82,27 @@ namespace GoonRunner.MVVM.ViewModel
                 }
             });
         }
+
+        //private void LoadMaHDInfo()
+        //{
+        //    try
+        //    {
+        //        // Assuming you have a KHACHHANG entity in your database
+        //        var hoadon = DataProvider.Ins.goonRunnerDB.HOADONs.FirstOrDefault(hd => hd.MaHD == MaHD);
+
+        //        if (hoadon != null)
+        //        {
+        //            // Auto-fill customer information
+        //            HoKH = khachHang.HoKH;
+        //            TenKH = khachHang.TenKH;
+        //            SDTKH = khachHang.SdtKH;
+        //            DiaChi = khachHang.DiaChi;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Lỗi khi tải thông tin khách hàng: {ex.Message}");
+        //    }
+        //}
     }
 }

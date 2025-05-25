@@ -24,7 +24,7 @@ namespace GoonRunner.MVVM.ViewModel
                 MainViewModel.Instance.ChiTietPhieuNhapHangVM = new ChiTietPhieuNhapHangViewModel(SelectedItem.MaPNH);
 
                 MainViewModel.Instance.CurrentView = MainViewModel.Instance.ChiTietPhieuNhapHangVM;
-                MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.ChiTietPhieuNhapHangVM;
+                MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarChiTietPhieuNhapHangVM;
             });
         }
         private void LoadPhieuNhapHangList()

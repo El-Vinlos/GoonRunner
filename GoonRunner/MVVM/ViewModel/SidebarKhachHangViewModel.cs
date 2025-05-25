@@ -29,6 +29,7 @@ namespace GoonRunner.MVVM.ViewModel
 
         public SidebarKhachHangViewModel()
         {
+            SelectedDate = DateTime.Now;
             DanhSachKhachHang = new ObservableCollection<KHACHHANG>(DataProvider.Ins.goonRunnerDB.KHACHHANGs);
             AddKhachHangCommand = new RelayCommand<Button>((p) => { return true; }, (p) => 
             {

@@ -121,7 +121,10 @@ namespace GoonRunner.MVVM.ViewModel
                 {
                     MainVM.CurrentView = MainVM.OwnerHomeVM;
                 }
+                else
+                {
                     MainVM.CurrentView = MainVM.HomeVM;
+                }
             }
             SidebarHoaDonVM.CurrentUser = MaNV;
             SetVisibilityByPrivilege(mainwindow);

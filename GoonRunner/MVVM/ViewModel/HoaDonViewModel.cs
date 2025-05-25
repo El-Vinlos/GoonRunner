@@ -24,10 +24,9 @@ namespace GoonRunner.MVVM.ViewModel
             RefreshCommand = new RelayCommand<Button>((p) => true, (p) => { LoadHoaDonList(); });
             DoubleClickCommand = new RelayCommand<object>((p) => SelectedItem != null, (p) =>
             {
-                // Tạo ViewModel mới dựa trên MaHD
                 MainViewModel.Instance.ChiTietHoaDonVM = new ChiTietHoaDonViewModel(SelectedItem.MaHD);
+                MainViewModel.Instance.SidebarChiTietHoaDonVM = new SidebarChiTietHoaDonViewModel(SelectedItem.MaHD);
 
-                // Chuyển View
                 MainViewModel.Instance.CurrentView = MainViewModel.Instance.ChiTietHoaDonVM;
                 MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarChiTietHoaDonVM;
             });

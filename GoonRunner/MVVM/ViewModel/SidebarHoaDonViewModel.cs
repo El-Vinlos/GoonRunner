@@ -163,7 +163,7 @@ namespace GoonRunner.MVVM.ViewModel
                     // Auto-fill employee information
                     HoNV = nhanVien.HoNV;
                     TenNV = nhanVien.TenNV;
-                    HoTenNV = nhanVien.HoNV + nhanVien.TenNV;
+                    HoTenNV = nhanVien.HoNV + " " + nhanVien.TenNV;
                 }
             }
             catch (Exception ex)
