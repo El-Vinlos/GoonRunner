@@ -43,7 +43,7 @@
                                 FontFamily="pack://application:,,,/Assets/Fonts/#JetBrains Mono"
                                 Margin="0,0,0,5" 
                                 SelectedDate="{Binding SelectedDate, Mode=TwoWay}"/>
-                    <TextBlock Text="{Binding HienThiDoanhThu, Mode=TwoWay}" Grid.Row="1" Foreground="#FF1FA022" FontSize="30" Margin="10,0,0,0"/>
+                    <TextBlock Text="{Binding HienThiDoanhThu, StringFormat={}{0:N0}đ, Mode=TwoWay}" Grid.Row="1" Foreground="#FF1FA022" FontSize="30" Margin="10,0,0,0"/>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Row="0" Grid.Column="1" Style="{StaticResource GroupBoxGoonRunner}" Header="Tình Trạng" Foreground="#FFDA3737">

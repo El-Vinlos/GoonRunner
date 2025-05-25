@@ -17,8 +17,8 @@
             <gr:Textbox SetHeader="Tên KH" SetPlaceholder="Nhập tên KH" SetBinding="{Binding TenKH}"/>
             <gr:Textbox SetHeader="SDT KH" SetPlaceholder="Nhập Số điện thoại KH" SetBinding="{Binding SDTKH}"/>
             <gr:Textbox SetHeader="Địa chỉ" SetPlaceholder="Nhập địa chỉ KH" SetBinding="{Binding DiaChi}"/>
-            <gr:Textbox SetHeader="Mã NV" SetPlaceholder="Nhập mã NV" SetBinding="{Binding MaNV}"/>
-            <gr:Textbox SetHeader="Họ NV" SetPlaceholder="Nhập họ NV" SetBinding="{Binding HoNV}"/>
+            <!--<gr:Textbox SetHeader="Mã NV" SetPlaceholder="Nhập mã NV" SetBinding="{Binding MaNV}"/>-->
+            <gr:Textbox SetHeader="Họ NV" SetPlaceholder="Nhập họ NV" SetBinding="{Binding HoTenNV}"/>
             <gr:Textbox SetHeader="Tên NV" SetPlaceholder="Nhập tên NV" SetBinding="{Binding TenNV}"/>
             <DatePicker gr:Extensions.Header="Ngày mua hàng"
                     VerticalContentAlignment="Center"
