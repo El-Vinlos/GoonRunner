@@ -74,6 +74,7 @@ namespace GoonRunner.MVVM.ViewModel
                 DataProvider.Ins.goonRunnerDB.SaveChanges();
                 DanhSachKhachHang.Add(khachhang);
                 MessageBox.Show("Thêm thành công!");
+                MainViewModel.Instance?.KhachHangVM?.LoadKhachHangList();
             });
         } 
         private bool IsInSmallDateTimeRange(DateTime dateTime)

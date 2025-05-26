@@ -33,16 +33,13 @@ namespace GoonRunner.MVVM.ViewModel
         private string _diachi;
         public string DiaChi { get => _diachi; set { _diachi = value; OnPropertyChanged(); } }                  
         private int _manv;
-        public int MaNV { get => _manv; set { _manv = value; OnPropertyChanged(); LoadNhanVienInfo(value); } }
+        public int MaNV { get => _manv; set { _manv = value; OnPropertyChanged(); LoadNhanVienInfo(value);  } }
         private string _hotennv;
         public string HoTenNV { get => _hotennv; set { _hotennv = value; OnPropertyChanged(); } }
         private string _honv;
         public string HoNV { get => _honv; set { _honv = value; OnPropertyChanged(); } }
         private string _tennv;
         public string TenNV { get => _tennv; set { _tennv = value; OnPropertyChanged(); } }
-        
-        //private string _tennv;
-        //public string TenNV { get => _tennv; set { _tennv = value; OnPropertyChanged(); } }
         private int _currentuser;
         public int CurrentUser { get => _currentuser; set { _currentuser = value; OnPropertyChanged(); } }
         private DateTime _ngaymuahang;
@@ -53,7 +50,6 @@ namespace GoonRunner.MVVM.ViewModel
         {
             SelectedDate = DateTime.Now;
             DanhSachHoaDon = new ObservableCollection<HOADON>(DataProvider.Ins.goonRunnerDB.HOADONs);
-            LoadCurrentUserAsEmployee();
             AddHoaDonCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {
                 if (MaKH == 0)
@@ -126,6 +122,7 @@ namespace GoonRunner.MVVM.ViewModel
                 DataProvider.Ins.goonRunnerDB.SaveChanges();
                 DanhSachHoaDon.Add(hoadon);
                 MessageBox.Show("Thêm thành công!");
+                MainViewModel.Instance?.HoaDonVM?.LoadHoaDonList();
                 ClearFields();
             });
         }
@@ -161,8 +158,6 @@ namespace GoonRunner.MVVM.ViewModel
                 if (nhanVien != null)
                 {
                     // Auto-fill employee information
-                    HoNV = nhanVien.HoNV;
-                    TenNV = nhanVien.TenNV;
                     HoTenNV = nhanVien.HoNV + " " + nhanVien.TenNV;
                 }
             }
@@ -172,23 +167,21 @@ namespace GoonRunner.MVVM.ViewModel
             }
         }
 
-        private void LoadCurrentUserAsEmployee()
+        public void LoadCurrentUserAsEmployee()
         {
             try
             {
-                LogInView loginWindow = new LogInView();
-                var loginVM = loginWindow.DataContext as LoginViewModel;
-                CurrentUser = loginVM.MaNV;
-                if (CurrentUser == 0)
+                CurrentUser = MainViewModel.Instance.CurrentUser;
+                if (MainViewModel.Instance.Privilege != "Chủ cửa hàng" && CurrentUser == 0)
                 {
-                    MessageBox.Show("Không có thông tin đăng nhập. Vui lòng đăng nhập lại."); 
+                   MessageBox.Show("Không có thông tin đăng nhập. Vui lòng đăng nhập lại.");
                 }
                 MaNV = CurrentUser;
                 LoadNhanVienInfo(CurrentUser);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi tải thông tin nhân viên hiện tại: {ex.Message}");
+                //MessageBox.Show($"Lỗi khi tải thông tin nhân viên hiện tại: {ex.Message}");
             }
         }
 

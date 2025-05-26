@@ -22,12 +22,13 @@ namespace GoonRunner.MVVM.ViewModel
             DoubleClickCommand = new RelayCommand<object>((p) => SelectedItem != null, (p) =>
             {
                 MainViewModel.Instance.ChiTietPhieuNhapHangVM = new ChiTietPhieuNhapHangViewModel(SelectedItem.MaPNH);
+                MainViewModel.Instance.SidebarChiTietPhieuNhapHangVM = new SidebarChiTietPhieuNhapHangViewModel(SelectedItem.MaPNH);
 
                 MainViewModel.Instance.CurrentView = MainViewModel.Instance.ChiTietPhieuNhapHangVM;
                 MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarChiTietPhieuNhapHangVM;
             });
         }
-        private void LoadPhieuNhapHangList()
+        public void LoadPhieuNhapHangList()
         {
             PhieuNhapHangList = new ObservableCollection<PHIEUNHAPHANG>();
             var DanhSachPhieuNhapHang = DataProvider.Ins.goonRunnerDB.PHIEUNHAPHANGs;

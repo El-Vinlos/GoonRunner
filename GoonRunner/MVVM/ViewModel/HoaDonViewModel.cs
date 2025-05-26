@@ -31,7 +31,7 @@ namespace GoonRunner.MVVM.ViewModel
                 MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarChiTietHoaDonVM;
             });
         }
-        private void LoadHoaDonList()
+        public void LoadHoaDonList()
         {
             HoaDonList = new ObservableCollection<HOADON>();
             var DanhSachHoaDon = DataProvider.Ins.goonRunnerDB.HOADONs;

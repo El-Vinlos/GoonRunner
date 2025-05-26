@@ -41,6 +41,8 @@ namespace GoonRunner.MVVM.ViewModel
         public string Privilege { get => _privilege; set { _privilege = value; OnPropertyChanged(); } }
         private int _manv;
         public int MaNV { get => _manv; set { _manv = value; OnPropertyChanged(); } }
+        private int _currentuser;
+        public int CurrentUser { get => _currentuser; set { _currentuser = value; OnPropertyChanged(); } }
         public object CurrentView
         {
             get { return _currentView; }
@@ -180,6 +182,7 @@ namespace GoonRunner.MVVM.ViewModel
             {
                 CurrentView = PhieuNhapHangVM;
                 CurrentSidebarView = SidebarPhieuNhapHangVM;
+                MainViewModel.Instance.SidebarPhieuNhapHangVM.LoadCurrentUserAsEmployee();
                 EnableSidebar();
             });
 
@@ -194,6 +197,7 @@ namespace GoonRunner.MVVM.ViewModel
             {
                 CurrentView = HoaDonVM;
                 CurrentSidebarView = SidebarHoaDonVM;
+                MainViewModel.Instance.SidebarHoaDonVM.LoadCurrentUserAsEmployee();
                 EnableSidebar();
             });
 
@@ -228,6 +232,7 @@ namespace GoonRunner.MVVM.ViewModel
             loginVM.ErrorMessage = "";
             CurrentView = HomeVM;
             loginVM.MaNV = 0;
+           
             loginWindow.Show();
             p.Hide();
         }

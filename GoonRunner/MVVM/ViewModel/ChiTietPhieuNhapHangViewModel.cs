@@ -35,7 +35,7 @@ namespace GoonRunner.MVVM.ViewModel
                 MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarPhieuNhapHangVM;
             });
         }
-        private void LoadChiTietPhieuNhapHangList()
+        public void LoadChiTietPhieuNhapHangList()
         {
             ChiTietPhieuNhapHangList = new ObservableCollection<CHITIETPHIEUNHAPHANG>();
             int i = MaPNH;

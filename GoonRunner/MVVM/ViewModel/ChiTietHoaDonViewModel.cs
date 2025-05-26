@@ -40,7 +40,7 @@ namespace GoonRunner.MVVM.ViewModel
                 MainViewModel.Instance.CurrentSidebarView = MainViewModel.Instance.SidebarHoaDonVM;
             });
         }
-        private void LoadChiTietHoaDonList()
+        public void LoadChiTietHoaDonList()
         {
             ChiTietHoaDonList = new ObservableCollection<CHITIETHOADON>();
             int i = MaHD;

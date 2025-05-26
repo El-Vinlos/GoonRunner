@@ -126,7 +126,7 @@ namespace GoonRunner.MVVM.ViewModel
                     MainVM.CurrentView = MainVM.HomeVM;
                 }
             }
-            SidebarHoaDonVM.CurrentUser = MaNV;
+            MainViewModel.Instance.CurrentUser = MaNV;
             SetVisibilityByPrivilege(mainwindow);
             
             mainwindow.Show();
@@ -196,6 +196,16 @@ namespace GoonRunner.MVVM.ViewModel
                     mainwindow.HoaDonRadioButton,
                     //mainwindow.ChiTietHoaDonRadioButton,
                     mainwindow.PhieuNhapHangRadioButton,
+                    //mainwindow.ChiTietPhieuNhapHangRadioButton,
+                    mainwindow.BaoHanhRadioButton
+                },
+                ["Chủ cửa hàng"] = new List<UIElement>
+                {
+                    mainwindow.KhachHangRadioButton,
+                    mainwindow.SanPhamRadioButton,
+                    //mainwindow.HoaDonRadioButton,
+                    //mainwindow.ChiTietHoaDonRadioButton,
+                    //mainwindow.PhieuNhapHangRadioButton,
                     //mainwindow.ChiTietPhieuNhapHangRadioButton,
                     mainwindow.BaoHanhRadioButton
                 }
