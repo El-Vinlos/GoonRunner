@@ -35,7 +35,6 @@ namespace GoonRunner.MVVM.ViewModel
         {
             HoaDonList = new ObservableCollection<HOADON>();
             var DanhSachHoaDon = DataProvider.Ins.goonRunnerDB.HOADONs;
-            int i = 1;
             foreach (var item in DanhSachHoaDon)
             {
                 HOADON hoadon = new HOADON();
@@ -48,7 +47,6 @@ namespace GoonRunner.MVVM.ViewModel
                 hoadon.TenNV = item.HoNV + " " + item.TenNV;
                 hoadon.NgayMuaHang = item.NgayMuaHang;
                 HoaDonList.Add(hoadon);
-                i++;
             }
         }
     }

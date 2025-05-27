@@ -22,7 +22,6 @@ namespace GoonRunner.MVVM.ViewModel
         {
             KhachHangList = new ObservableCollection<KHACHHANG>();
             var DanhSachKhachHang = DataProvider.Ins.goonRunnerDB.KHACHHANGs;
-            int i = 1;
             foreach (var item in DanhSachKhachHang)
             {
                 KHACHHANG khachhang = new KHACHHANG();
@@ -32,7 +31,6 @@ namespace GoonRunner.MVVM.ViewModel
                 khachhang.NgaySinh = item.NgaySinh;
                 khachhang.DiaChi = item.DiaChi;
                 KhachHangList.Add(khachhang);
-                i++;
             }
         }
     }
