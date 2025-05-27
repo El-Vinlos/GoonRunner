@@ -110,9 +110,10 @@ namespace GoonRunner.MVVM.ViewModel
         private DateTime _ngaysinh;
         public DateTime NgaySinh { get => _ngaysinh; set { _ngaysinh = value; OnPropertyChanged(); } }
         public ICommand AddNhanVienCommand { get; set; }
+        public ICommand UpdateNhanVienCommand { get; set; }
         public ICommand DeleteNhanVienCommand { get; set; }
         public ICommand ClearFieldCommand { get; set; }
-        public SidebarNhanVienViewModel()
+        public SidebarNhanVienViewModel() 
         {
             SelectedRole = "Nhân viên bán hàng";
             SelectedGender = "Nam";
@@ -188,6 +189,134 @@ namespace GoonRunner.MVVM.ViewModel
                 MainViewModel.Instance?.NhanVienVM?.LoadNhanVienList();
                 ClearFields();
             });
+
+            ClearFieldCommand = new RelayCommand<Button>((p) => { return true; }, (p) => 
+            {
+                ClearFields();
+            });
+            UpdateNhanVienCommand = new RelayCommand<Button>((p) => { return MaNV != 0; }, (p) =>
+            {
+                UpdateNhanVienInfo();
+            });
+        }
+
+        private void UpdateNhanVienInfo()
+        {
+                try
+                {
+                    if (MaNV == 0)
+                    {
+                        MessageBox.Show("Vui lòng chọn nhân viên để cập nhật");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(HoNV))
+                    {
+                        MessageBox.Show("Hãy nhập Họ NV");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(TenNV))
+                    {
+                        MessageBox.Show("Hãy nhập Tên NV");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(DiaChi))
+                    {
+                        MessageBox.Show("Hãy nhập Địa chỉ NV");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(SDT))
+                    {
+                        MessageBox.Show("Hãy nhập Số điện thoại");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(CMND))
+                    {
+                        MessageBox.Show("Hãy nhập CMND");
+                        return;
+                    }
+
+                    int existingCMND = DataProvider.Ins.goonRunnerDB.NHANVIENs.Count(nv => nv.CMND == CMND && nv.MaNV != MaNV);
+                    if (existingCMND > 0)
+                    {
+                        MessageBox.Show("CMND đã tồn tại trong hệ thống. Vui lòng kiểm tra lại!", 
+                            "Trùng CMND", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        return;
+                    }
+
+                    if (!IsInSmallDateTimeRange(NgaySinh))
+                    {
+                        MessageBox.Show("Ngày sinh không hợp lệ");
+                        return;
+                    }
+
+                    if (IsCurrentDateTime(NgaySinh))
+                    {
+                        MessageBox.Show("Ngày sinh không thể là ngày hôm nay");
+                        return;
+                    }
+
+                    var existingEmployee = DataProvider.Ins.goonRunnerDB.NHANVIENs
+                        .FirstOrDefault(nv => nv.MaNV == MaNV);
+
+                    if (existingEmployee == null)
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên để cập nhật");
+                        return;
+                    }
+
+                    var result = MessageBox.Show(
+                        $"Bạn có chắc chắn muốn cập nhật thông tin nhân viên {existingEmployee.HoNV} {existingEmployee.TenNV}?",
+                        "Xác nhận cập nhật",
+                        MessageBoxButton.YesNo,
+                        MessageBoxImage.Question);
+
+                    if (result != MessageBoxResult.Yes)
+                    {
+                        return;
+                    }
+
+                    // Update employee information
+                    existingEmployee.HoNV = HoNV;
+                    existingEmployee.TenNV = TenNV;
+                    existingEmployee.DiaChiNV = DiaChi;
+                    existingEmployee.SdtNV = SDT;
+                    existingEmployee.CMND = CMND;
+                    existingEmployee.ChucVu = ChucVu;
+                    existingEmployee.GioiTinh = GioiTinh;
+                    existingEmployee.NgaySinh = NgaySinh;
+                    existingEmployee.MaPB = MaPB;
+
+                    DataProvider.Ins.goonRunnerDB.SaveChanges();
+
+                    var localEmployee = DanhSachNhanVien.FirstOrDefault(nv => nv.MaNV == MaNV);
+                    if (localEmployee != null)
+                    {
+                        localEmployee.HoNV = HoNV;
+                        localEmployee.TenNV = TenNV;
+                        localEmployee.DiaChiNV = DiaChi;
+                        localEmployee.SdtNV = SDT;
+                        localEmployee.CMND = CMND;
+                        localEmployee.ChucVu = ChucVu;
+                        localEmployee.GioiTinh = GioiTinh;
+                        localEmployee.NgaySinh = NgaySinh;
+                        localEmployee.MaPB = MaPB;
+                    }
+
+                    MessageBox.Show("Cập nhật thành công!");
+
+                    MainViewModel.Instance?.NhanVienVM?.LoadNhanVienList();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi cập nhật nhân viên: {ex.Message}", 
+                        "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
         }
         private void DeleteNhanVien()
         {
@@ -266,7 +395,6 @@ namespace GoonRunner.MVVM.ViewModel
 
                 if (nhanvien != null)
                 {
-                    // Auto-fill customer information
                     HoNV = nhanvien.HoNV;
                     TenNV = nhanvien.TenNV;
                     DiaChi = nhanvien.DiaChiNV;
@@ -281,6 +409,18 @@ namespace GoonRunner.MVVM.ViewModel
             {
                 //MessageBox.Show($"Lỗi khi tải thông tin nhân viên: {ex.Message}");
             }
+        }
+        private void ClearFields()
+        {
+            MaNV = 0;
+            HoNV = string.Empty;
+            TenNV = string.Empty;
+            DiaChi = string.Empty;
+            SDT = string.Empty;
+            CMND = string.Empty;
+            SelectedRole = "Nhân viên bán hàng";
+            SelectedGender = "Nam";
+            SelectedDate = DateTime.Now;
         }
         private void ClearFields()
         {
