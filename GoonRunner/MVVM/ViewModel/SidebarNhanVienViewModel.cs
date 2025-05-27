@@ -39,7 +39,9 @@ namespace GoonRunner.MVVM.ViewModel
         private string _selectedgender;
         public string SelectedGender { get => _selectedgender; set { if (_selectedgender != value) { _selectedgender = value; GioiTinh = value; OnPropertyChanged(); } } }
         private DateTime _selecteddate;
-        public DateTime SelectedDate { get => _selecteddate; set { if (_selecteddate != value) { _selecteddate = value; NgaySinh = value; OnPropertyChanged(); } } }
+        public DateTime SelectedDate { get => _selecteddate; set { if (_selecteddate != value) { _selecteddate = value; FormattedDate = value.ToString("dd/MM/yyyy"); NgaySinh = value; OnPropertyChanged(); } } }
+        public string FormattedDate { get; private set; }
+
         private int _manv;
         public int MaNV { get => _manv; set { _manv = value; OnPropertyChanged(); } }
         private string _honv;
@@ -105,20 +107,19 @@ namespace GoonRunner.MVVM.ViewModel
         private DateTime _ngaysinh;
         public DateTime NgaySinh { get => _ngaysinh; set { _ngaysinh = value; OnPropertyChanged(); } }
         public ICommand AddNhanVienCommand { get; set; }
-        public SidebarNhanVienViewModel() 
+        public SidebarNhanVienViewModel()
         {
-            SelectedDate = DateTime.Now;
-            LoadNhanVienInfo(MaNV);
-        }
-        public SidebarNhanVienViewModel(int maNV)
-        {
-            MaNV = maNV;
-            LoadNhanVienInfo(MaNV);
             SelectedDate = DateTime.Now;
             DanhSachNhanVien = new ObservableCollection<NHANVIEN>(DataProvider.Ins.goonRunnerDB.NHANVIENs);
             
             AddNhanVienCommand = new RelayCommand<Button>((p) => { return true; }, (p) =>
             {
+                if (MaNV != 0)
+                {
+                    MessageBox.Show("Nhân viên này đã tồn tại");
+                    return;
+                }
+                
                 if (string.IsNullOrEmpty(HoNV))
                 {
                     MessageBox.Show("Hãy nhập Họ NV");
@@ -172,7 +173,7 @@ namespace GoonRunner.MVVM.ViewModel
             });
 
         }
-        private void LoadNhanVienInfo(int maNV)
+        public void LoadNhanVienInfo(int maNV)
         {
             try
             {
