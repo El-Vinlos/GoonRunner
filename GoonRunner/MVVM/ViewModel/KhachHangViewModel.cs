@@ -33,8 +33,6 @@ namespace GoonRunner.MVVM.ViewModel
                 FilterText = string.Empty;
                 FilteredKhachHangList.Refresh();
             });
-
-            LoadKhachHangList();
         }
 
         public void LoadKhachHangList()
@@ -72,6 +70,5 @@ namespace GoonRunner.MVVM.ViewModel
             // var fullName = $"{khachhang.HoKH ?? ""} {khachhang.TenKH ?? ""}";
             return khachhang.TenKH.IndexOf(FilterText, StringComparison.OrdinalIgnoreCase) >= 0;
         }
-        
     }
 }
