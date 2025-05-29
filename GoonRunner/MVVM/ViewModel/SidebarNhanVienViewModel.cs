@@ -327,7 +327,7 @@ namespace GoonRunner.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                //MessageBox.Show($"Lỗi khi tải thông tin nhân viên: {ex.Message}");
+                MessageBox.Show($"Lỗi khi tải thông tin nhân viên: {ex.Message}");
             }
         }
         private void ClearFields()
