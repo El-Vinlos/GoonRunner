@@ -15,7 +15,7 @@
 
             <StackPanel Grid.Row="0">
 
-                <RadioButton Name="TrangChuRadioButton"
+                <RadioButton Name="HomeViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Home20"
                              Command="{Binding HomeViewCommand}"
@@ -32,7 +32,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="NhanVienRadioButton"
+                <RadioButton Name="EmployeeViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="PersonAccounts20"
                              Command="{Binding EmployeeViewCommand}"
@@ -49,7 +49,7 @@
                     </StackPanel>
                 </RadioButton>
                 
-                <RadioButton Name="AccNhanVienRadioButton"
+                <RadioButton Name="EmployeeAccountViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="PersonAccounts20"
                              Command="{Binding EmployeeAccountViewCommand}"
@@ -66,7 +66,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="SanPhamRadioButton"
+                <RadioButton Name="ProductViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Box20"
                              Command="{Binding ProductViewCommand}"
@@ -83,7 +83,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="HoaDonRadioButton"
+                <RadioButton Name="InvoiceViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Clipboard20"
                              Command="{Binding InvoiceViewCommand}"
@@ -100,7 +100,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="PhieuNhapHangRadioButton"
+                <RadioButton Name="GoodsReceiptViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="BoxArrowUp20"
                              Visibility="{Binding IsPhieuNhapVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -117,7 +117,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="TonKhoRadioButton"
+                <RadioButton Name="InventoryViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="BoxMultiple20"
                              Command="{Binding InventoryViewCommand}"
@@ -134,7 +134,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="KhachHangRadioButton"
+                <RadioButton Name="CustomerViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              Command="{Binding CustomerViewCommand}"
                              Click="EnableSidebar"
@@ -151,7 +151,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="KhuyenMaiRadioButton"
+                <RadioButton Name="PromotionsViewRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Tag20"
                              Visibility="{Binding IsKhuyenMaiVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
@@ -166,7 +166,7 @@
                     </StackPanel>
                 </RadioButton>
 
-                <RadioButton Name="BaoHanhRadioButton"
+                <RadioButton Name="WarrantyViewadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Wrench20"
                              Visibility="{Binding IsBaoHanhVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
