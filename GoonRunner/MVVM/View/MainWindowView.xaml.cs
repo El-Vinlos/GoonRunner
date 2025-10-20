@@ -83,18 +83,10 @@ namespace GoonRunner.MVVM.View
             MainGrid.ColumnDefinitions[4].Width = new GridLength(0);
             MainGrid.ColumnDefinitions[5].Width = new GridLength(0);
         }
-        private void CollapseSidebar()
-        {
-            Split2.Visibility = Visibility.Collapsed;
-            MainGrid.ColumnDefinitions[5].Width = new GridLength(0);
-            MainGrid.ColumnDefinitions[4].Width = new GridLength(0);
-            SidebarButton.IsChecked = false;
-        }
-
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             const double desktopBreakpoint = 1024;
-            const double tabletBreakpoint = 768;
+            // const double tabletBreakpoint = 768;
             var width = e.NewSize.Width;
             if (width < desktopBreakpoint)
             {
@@ -105,35 +97,6 @@ namespace GoonRunner.MVVM.View
             {
                 MainGrid.ColumnDefinitions[1].MaxWidth = 250;
             }
-        }
-
-        private void Split2_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            {
-                if (!(DataContext is MainViewModel vm)) return;
-                if (!vm.IsSplit2Enabled)
-                    e.Handled = true; // blocks dragging
-            }
-        }
-
-        private void Split2_OnPreviewMouseMove(object sender, MouseEventArgs e)
-        {
-            if (!(DataContext is MainViewModel vm)) return;
-
-            if (!vm.IsSplit2Enabled)
-            {
-                Mouse.OverrideCursor = Cursors.Arrow;
-                e.Handled = true;
-            }
-            else
-            {
-            }
-        }
-
-        private void Split2_OnMouseLeave(object sender, MouseEventArgs e)
-        {
-            Mouse.OverrideCursor = null;
-            
         }
     }
 }
