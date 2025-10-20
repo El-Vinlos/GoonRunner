@@ -19,7 +19,7 @@
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Home20"
                              Command="{Binding HomeViewCommand}"
-                             Click="CollapseSidebar"
+                             Click="DisableSidebar"
                              Visibility="{Binding IsHomeVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              IsChecked="True">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -36,6 +36,7 @@
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="PersonAccounts20"
                              Command="{Binding EmployeeViewCommand}"
+                             Click="EnableSidebar"
                              Visibility="{Binding IsNhanVienVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -52,6 +53,7 @@
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="PersonAccounts20"
                              Command="{Binding EmployeeAccountViewCommand}"
+                             Click="EnableSidebar"
                              Visibility="{Binding IsAccNhanVienVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -68,6 +70,7 @@
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Box20"
                              Command="{Binding ProductViewCommand}"
+                             Click="DisableSidebar"
                              Visibility="{Binding IsSanPhamVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -83,8 +86,8 @@
                 <RadioButton Name="HoaDonRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Clipboard20"
-                             Click="CollapseSidebar"
                              Command="{Binding InvoiceViewCommand}"
+                             Click="EnableSidebar"
                              Visibility="{Binding IsHoaDonVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -102,6 +105,7 @@
                              gr:Extensions.Icon="BoxArrowUp20"
                              Visibility="{Binding IsPhieuNhapVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              Command="{Binding GoodsReceiptViewCommand}"
+                             Click="EnableSidebar"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <TextBlock FontFamily="{StaticResource 'JetBrains Mono'}"
@@ -116,8 +120,8 @@
                 <RadioButton Name="TonKhoRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="BoxMultiple20"
-                             Click="CollapseSidebar"
                              Command="{Binding InventoryViewCommand}"
+                             Click="DisableSidebar"
                              Visibility="{Binding IsTonKhoVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -133,6 +137,7 @@
                 <RadioButton Name="KhachHangRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              Command="{Binding CustomerViewCommand}"
+                             Click="EnableSidebar"
                              gr:Extensions.Icon="People20"
                              Visibility="{Binding IsKhachHangVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
