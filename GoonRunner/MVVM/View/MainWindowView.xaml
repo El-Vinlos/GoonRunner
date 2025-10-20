@@ -34,9 +34,9 @@
                 <ColumnDefinition Width="10"/>
                 <!--gap-->
                 <ColumnDefinition Width="*" MinWidth="100"/>
-                <ColumnDefinition  Width="{Binding SidebarLeftGapWidth}"/>
+                <ColumnDefinition  Width="10"/>
                 <!--gap-->
-                <ColumnDefinition Width="{Binding SidebarWidth}" MaxWidth="280"/>
+                <ColumnDefinition Width="0"/>
                 <ColumnDefinition Width="10"/>
                 <!--gap-->
             </Grid.ColumnDefinitions>
@@ -107,7 +107,6 @@
                                       Name="SidebarButton"
                                       FontSize="24"
                                       gr:Extensions.Icon="DualScreenStatusBar24"
-                                      IsEnabled="{Binding IsSidebarButtonEnabled}"
                                       Click="ControlSidebar"/>
 
                         <Button Height="60" Width="auto" Style="{StaticResource NavButton}"
@@ -165,9 +164,6 @@
                           VerticalAlignment="Stretch" HorizontalAlignment="Left" 
                           ResizeBehavior="PreviousAndNext" ResizeDirection="Columns"
                           Margin="-6,20,0,10"
-                          PreviewMouseDown="Split2_OnPreviewMouseDown"
-                          MouseLeave="Split2_OnMouseLeave"
-                          PreviewMouseMove="Split2_OnPreviewMouseMove"
                           DragDelta="CheckSidebarWidth"
                           DragCompleted="SetSidebarWidth"/>
             <GroupBox Grid.Column="5" Grid.Row="3" Style="{StaticResource GroupBoxGoonRunner}" Header="Sidebar">

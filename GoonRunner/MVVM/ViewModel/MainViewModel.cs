@@ -157,61 +157,14 @@ namespace GoonRunner.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
-
-        public bool IsSidebarButtonEnabled
-        {
-            get => _isSidebarButtonEnabled;
-            set
-            {
-                _isSidebarButtonEnabled = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int SidebarLeftGapWidth
-        {
-            get => _sidebarLeftGapWidth;
-            set
-            {
-                _sidebarLeftGapWidth = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int SidebarWidth
-        {
-            get => _sidebarWidth;
-            private set
-            {
-                _sidebarWidth = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public bool IsSplit2Enabled
-        {
-            get => _issplit2enabled;
-            set
-            {
-                _issplit2enabled = value;
-                OnPropertyChanged();
-            }
-        }
-
         private string _title = "GoonRunner - Trang Chủ";
         public string Title { get => _title; set { _title = value; OnPropertyChanged(); } }
 
         private object _currentView;
         private object _currentSidebarView;
-        private bool _isSidebarButtonEnabled;
-        private int _sidebarLeftGapWidth;
-        private int _sidebarWidth;
-        private bool _issplit2enabled;
-
         public MainViewModel()
         {
-            HomeViewCommand = new RelayCommand<RadioButton>(o =>
+            HomeViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 if (Role == EmployeeRoles.Roles.ChuCuaHang)
                 {
@@ -222,71 +175,57 @@ namespace GoonRunner.MVVM.ViewModel
                     CurrentView = HomeVM;
                 }
                 Title = "GoonRunner - Trang Chủ";
-
-                DisableSidebar();
             });
 
-            EmployeeViewCommand = new RelayCommand<RadioButton>(o =>
+            EmployeeViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = NhanVienVM;
                 CurrentSidebarView = SidebarNhanVienVM;
                 Title = "GoonRunner - Nhân Viên";
-                IsSplit2Enabled = true;
-                EnableSidebar();
             });
 
-            EmployeeAccountViewCommand = new RelayCommand<RadioButton>(o =>
+            EmployeeAccountViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = AccNhanVienVM;
                 CurrentSidebarView = SidebarAccNhanVienVM;
                 Title = "GoonRunner - Tài Khoản Nhân Viên";
-                IsSplit2Enabled = true;
-                EnableSidebar();
             });
 
-            CustomerViewCommand = new RelayCommand<RadioButton>(o =>
+            CustomerViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = KhachHangVM;
                 CurrentSidebarView = SidebarKhachHangVM;
                 Title = "GoonRunner - Khách Hàng";
-                IsSplit2Enabled = true;
-                EnableSidebar();
             });
 
 
-            ProductViewCommand = new RelayCommand<RadioButton>(o =>
+            ProductViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = SanPhamVM;
                 Title = "GoonRunner - Sản Phẩm";
-                DisableSidebar();
             });
 
-            GoodsReceiptViewCommand = new RelayCommand<RadioButton>(o =>
+            GoodsReceiptViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = PhieuNhapHangVM;
                 CurrentSidebarView = SidebarPhieuNhapHangVM;
-                IsSplit2Enabled = true;
                 Title = "GoonRunner - Phiếu Nhập Hàng";
-                EnableSidebar();
             });
 
-            InvoiceViewCommand = new RelayCommand<RadioButton>(o =>
+            InvoiceViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = HoaDonVM;
                 CurrentSidebarView = SidebarHoaDonVM;
-                IsSplit2Enabled = true;
                 Title = "GoonRunner - Hóa Đơn";
-                EnableSidebar();
             });
 
-            InventoryViewCommand = new RelayCommand<RadioButton>(o =>
+            InventoryViewCommand = new RelayCommand<RadioButton>(_ =>
             {
                 CurrentView = TonKhoVM;
                 Title = "GoonRunner - Tồn Kho";
-                DisableSidebar();
             });
 
-            SignOutCommand = new RelayCommand<Window>((p) => true, (p) =>
+            SignOutCommand = new RelayCommand<Window>( (p) =>
             {
                 var messageBox = new Wpf.Ui.Controls.MessageBox
                 {
@@ -433,9 +372,6 @@ namespace GoonRunner.MVVM.ViewModel
         private void ResetState()
         {
             CurrentSidebarView = null;
-            IsSidebarButtonEnabled = false;
-            SidebarWidth = 0;
-            IsSplit2Enabled = false;
             ClearViewModels();
 
         }
@@ -460,15 +396,6 @@ namespace GoonRunner.MVVM.ViewModel
             SidebarChiTietPhieuNhapHangVM = null;
             SidebarHoaDonVM = null;
             SidebarChiTietHoaDonVM = null;
-        }
-        private void EnableSidebar()
-        {
-            IsSidebarButtonEnabled = true;
-        }
-        private void DisableSidebar()
-        {
-            SidebarWidth = 0;
-            IsSidebarButtonEnabled = false;
         }
 
 
