@@ -12,7 +12,23 @@ namespace GoonRunner.CustomControl
         {
             InitializeComponent();
         }
-        private void CollapseSidebar(object sender, RoutedEventArgs e)
+        private void EnableSidebar(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Window.GetWindow(this);
+            if (mainWindow == null) return;
+
+            var split2 = FindChild<GridSplitter>(mainWindow, "Split2");
+            var sidebarButton = FindChild<ToggleButton>(mainWindow, "SidebarButton");
+
+            if (split2 != null)
+                split2.Visibility = Visibility.Visible;
+
+            if (sidebarButton != null)
+            {
+                sidebarButton.IsEnabled = true;
+            }
+        }
+        private void DisableSidebar(object sender, RoutedEventArgs e)
         {
             var mainWindow = Window.GetWindow(this);
             if (mainWindow == null) return;
