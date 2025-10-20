@@ -19,6 +19,7 @@
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Home20"
                              Command="{Binding HomeViewCommand}"
+                             Click="CollapseSidebar"
                              Visibility="{Binding IsHomeVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              IsChecked="True">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -82,6 +83,7 @@
                 <RadioButton Name="HoaDonRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="Clipboard20"
+                             Click="CollapseSidebar"
                              Command="{Binding InvoiceViewCommand}"
                              Visibility="{Binding IsHoaDonVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
@@ -114,6 +116,7 @@
                 <RadioButton Name="TonKhoRadioButton"
                              Style="{StaticResource RadioButtonStyle}"
                              gr:Extensions.Icon="BoxMultiple20"
+                             Click="CollapseSidebar"
                              Command="{Binding InventoryViewCommand}"
                              Visibility="{Binding IsTonKhoVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
                              >
